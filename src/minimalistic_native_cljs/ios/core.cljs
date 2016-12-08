@@ -15,7 +15,7 @@
 (def logo-img (js/require "./images/cljs.png"))
 
 (defn alert [title]
-      (.alert (.-Alert ReactNative) title))
+  (.alert (.-Alert ReactNative) title))
 
 (defn app-root []
   (let [greeting (subscribe [:get-greeting])]
@@ -25,9 +25,9 @@
        [image {:source logo-img
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
-                             :on-press #(alert "HELLO!")}
+                             :on-press #(alert "Hello Clojure!")}
         [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "press me"]]])))
 
 (defn init []
-      (dispatch-sync [:initialize-db])
-      (.registerComponent app-registry "MinimalisticNativeCljs" #(r/reactify-component app-root)))
+  (dispatch-sync [:initialize-db])
+  (.registerComponent app-registry "MinimalisticNativeCljs" #(r/reactify-component app-root)))
