@@ -20,7 +20,7 @@
 (defn app-root []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
-      [view {:style {:flex-direction "column" :backgroundColor "yellow" :margin 40 :align-items "center"}}
+      [view {:style {:flex-direction "column" :margin 40 :align-items "center"}}
        [text {:style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"}} @greeting]
        [image {:source logo-img
                :style  {:width 80 :height 80 :margin-bottom 30}}]
