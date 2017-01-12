@@ -1,4 +1,4 @@
-package com.minimalisticnativecljs.modules;
+package com.framework.rn_bridge.modules;
 
 import android.widget.Toast;
 
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * package: com.minimalisticnativecljs.modules
+ * package: com.framework.rn_bridge.modules
  * author: MeePwn
  * email: maybewaityou@gmail.com
  * github: https://github.com/maybewaityou

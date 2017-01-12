@@ -1,19 +1,21 @@
-package com.minimalisticnativecljs.modules.register;
+package com.framework.rn_bridge.register;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.minimalisticnativecljs.modules.TestCallbackModule;
-import com.minimalisticnativecljs.modules.TestToastModule;
+import com.facebook.react.views.image.ReactImageManager;
+import com.framework.rn_bridge.modules.TestCallbackModule;
+import com.framework.rn_bridge.modules.TestToastModule;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * package: com.minimalisticnativecljs.modules.register
+ * package: com.framework.rn_bridge.register
  * author: MeePwn
  * email: maybewaityou@gmail.com
  * github: https://github.com/maybewaityou
@@ -30,7 +32,9 @@ public class RegisterPackages implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Collections.emptyList();
+        return Arrays.<ViewManager>asList(
+                new ReactImageManager()
+        );
     }
 
     @Override

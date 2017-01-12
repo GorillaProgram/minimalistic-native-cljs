@@ -8,7 +8,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.minimalisticnativecljs.BuildConfig;
-import com.minimalisticnativecljs.modules.register.RegisterPackages;
+import com.framework.rn_bridge.register.RegisterPackages;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +16,7 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
         @Override
         protected boolean getUseDeveloperSupport() {
             return BuildConfig.DEBUG;
@@ -40,4 +41,5 @@ public class MainApplication extends Application implements ReactApplication {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
     }
+
 }
