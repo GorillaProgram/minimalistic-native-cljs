@@ -1,10 +1,11 @@
 (ns minimalistic-native-cljs.app.main.modules.toast
-    (:require [reagent.core :as r :refer [atom]]))
+    (:require [reagent.core :as r :refer [atom]]
+        [minimalistic-native-cljs.app.main.modules.native :refer [native-modules]]))
 
 (def ReactNative (js/require "react-native"))
 
-(def native-modules (.-NativeModules ReactNative))
+(def toast-modules (.-TestToastModule native-modules))
 
 (defn show-toast
   [message]
-  (.show (.-TestToastModule native-modules) message (.-LONG (.-TestToastModule native-modules))))
+  (.show toast-modules message (.-LONG toast-modules)))
