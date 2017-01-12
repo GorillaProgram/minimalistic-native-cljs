@@ -36,7 +36,7 @@ public class TestToastModule extends ReactContextBaseJavaModule {
     }
 
     /**
-     * Module的一些常量值
+     * 原生传递给Module的一些常量值
      */
     @Override
     public Map<String, Object> getConstants() {

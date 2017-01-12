@@ -2,6 +2,7 @@
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
             [minimalistic-native-cljs.app.main.modules.toast :refer [show-long-toast show-short-toast]]
+            [minimalistic-native-cljs.app.main.modules.callback :refer [test-callback]]
             [minimalistic-native-cljs.app.dataflow.event.events]
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
@@ -15,9 +16,18 @@
 
 (def logo-img (js/require "./images/cljs.png"))
 
-(defn alert [title]
-  (show-long-toast title)
-  (.alert (.-Alert ReactNative) title))
+(defn successCallback
+  [message, actionType]
+  (show-long-toast actionType)
+  (.alert (.-Alert ReactNative) message))
+
+(defn errorCallback
+  [message, actionType]
+  (show-long-toast actionType)
+  (.alert (.-Alert ReactNative) message))
+
+(defn handle-click [message]
+  (test-callback message successCallback errorCallback))
 
 (defn app-root-view []
   (let [greeting (subscribe [:get-greeting])]
@@ -27,5 +37,5 @@
        [image {:source logo-img
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
-                             :on-press #(alert "Hello Clojure!!!")}
+                             :on-press #(handle-click "success")}
         [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "Press Me"]]])))

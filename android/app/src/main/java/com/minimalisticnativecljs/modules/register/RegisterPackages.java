@@ -5,6 +5,7 @@ import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
+import com.minimalisticnativecljs.modules.TestCallbackModule;
 import com.minimalisticnativecljs.modules.TestToastModule;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class RegisterPackages implements ReactPackage {
         List<NativeModule> modules = new ArrayList<>();
 
         modules.add(new TestToastModule(reactContext));
+        modules.add(new TestCallbackModule(reactContext));
 
         return modules;
     }
