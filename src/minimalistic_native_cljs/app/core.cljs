@@ -26,7 +26,8 @@
   (show-long-toast actionType)
   (.alert (.-Alert ReactNative) message))
 
-(defn handle-click [message]
+(defn handle-click
+  [message]
   (test-callback message successCallback errorCallback))
 
 (defn app-root-view []
