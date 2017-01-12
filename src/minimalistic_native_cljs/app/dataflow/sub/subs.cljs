@@ -1,4 +1,4 @@
-(ns bank-of-shanghai-minimalistic-pad-project.app.dataflow.sub.subs
+(ns minimalistic-native-cljs.app.dataflow.sub.subs
   (:require [re-frame.core :refer [reg-sub]]))
 
 (reg-sub

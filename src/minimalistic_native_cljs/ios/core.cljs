@@ -1,8 +1,8 @@
-(ns bank-of-shanghai-minimalistic-pad-project.ios.core
+(ns minimalistic-native-cljs.ios.core
   (:require
     [reagent.core :as r :refer [atom]]
     [re-frame.core :refer [subscribe dispatch dispatch-sync]]
-    [bank-of-shanghai-minimalistic-pad-project.app.core :refer [app-root-view]]))
+    [minimalistic-native-cljs.app.core :refer [app-root-view]]))
 
 (def ReactNative (js/require "react-native"))
 (def app-registry (.-AppRegistry ReactNative))
