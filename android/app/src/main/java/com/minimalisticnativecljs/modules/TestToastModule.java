@@ -27,11 +27,17 @@ public class TestToastModule extends ReactContextBaseJavaModule {
         super(reactContext);
     }
 
+    /**
+     * Module Name
+     */
     @Override
     public String getName() {
         return "TestToastModule";
     }
 
+    /**
+     * Module的一些常量值
+     */
     @Override
     public Map<String, Object> getConstants() {
         final Map<String, Object> constants = new HashMap<>();
@@ -40,6 +46,9 @@ public class TestToastModule extends ReactContextBaseJavaModule {
         return constants;
     }
 
+    /**
+     * Module的方法
+     */
     @ReactMethod
     public void show(String message, int duration) {
         Toast.makeText(getReactApplicationContext(), message, duration).show();
