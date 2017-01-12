@@ -1,4 +1,4 @@
-package com.framework.rn_bridge.register;
+package com.framework.modules_and_widgets.register;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -6,8 +6,8 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.views.image.ReactImageManager;
-import com.framework.rn_bridge.modules.TestCallbackModule;
-import com.framework.rn_bridge.modules.TestToastModule;
+import com.framework.modules_and_widgets.modules.TestCallbackModule;
+import com.framework.modules_and_widgets.modules.TestToastModule;
 
 import java.util.ArrayList;
 import java.util.Arrays;

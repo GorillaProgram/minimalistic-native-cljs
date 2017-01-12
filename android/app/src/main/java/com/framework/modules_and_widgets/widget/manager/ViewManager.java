@@ -1,4 +1,4 @@
-package com.framework.rn_bridge.widget.manager;
+package com.framework.modules_and_widgets.widget.manager;
 
 import android.support.annotation.Nullable;
 

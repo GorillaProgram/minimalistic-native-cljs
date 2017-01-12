@@ -8,7 +8,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.minimalisticnativecljs.BuildConfig;
-import com.framework.rn_bridge.register.RegisterPackages;
+import com.framework.modules_and_widgets.register.RegisterPackages;
 
 import java.util.Arrays;
 import java.util.List;

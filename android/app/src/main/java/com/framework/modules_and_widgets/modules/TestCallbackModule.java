@@ -1,4 +1,4 @@
-package com.framework.rn_bridge.modules;
+package com.framework.modules_and_widgets.modules;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
