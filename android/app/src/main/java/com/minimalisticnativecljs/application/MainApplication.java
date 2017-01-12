@@ -1,4 +1,4 @@
-package com.minimalisticnativecljs;
+package com.minimalisticnativecljs.application;
 
 import android.app.Application;
 
@@ -7,6 +7,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.minimalisticnativecljs.BuildConfig;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.minimalisticnativecljs;
+package com.minimalisticnativecljs.pages;
 
 import com.facebook.react.ReactActivity;
 
