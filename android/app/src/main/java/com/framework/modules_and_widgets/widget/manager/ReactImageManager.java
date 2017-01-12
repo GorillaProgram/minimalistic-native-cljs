@@ -23,7 +23,7 @@ import com.facebook.react.views.image.ReactImageView;
  * desc:
  */
 
-public class ViewManager extends SimpleViewManager<ReactImageView> {
+public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
     public static final String REACT_CLASS = "RCTImageView";
 
