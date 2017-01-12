@@ -3,8 +3,8 @@
 
 (def ReactNative (js/require "react-native"))
 
-(def native-modules (r/adapt-react-class (.-NativeModules ReactNative)))
+(def native-modules (.-NativeModules ReactNative))
 
 (defn show-toast
   [message]
-  (println native-modules))
+  (.show (.-TestToastModule native-modules) message (.-LONG (.-TestToastModule native-modules))))

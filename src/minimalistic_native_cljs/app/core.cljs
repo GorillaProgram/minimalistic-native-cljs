@@ -16,7 +16,7 @@
 (def logo-img (js/require "./images/cljs.png"))
 
 (defn alert [title]
-  (show-toast "Awesome")
+  (show-toast title)
   (.alert (.-Alert ReactNative) title))
 
 (defn app-root-view []
