@@ -1,4 +1,4 @@
-(ns bank-of-shanghai-minimalistic-pad-project.app.dataflow.db.db
+(ns minimalistic-native-cljs.app.dataflow.db.db
   (:require [clojure.spec :as s]))
 
 ;; spec of app-db

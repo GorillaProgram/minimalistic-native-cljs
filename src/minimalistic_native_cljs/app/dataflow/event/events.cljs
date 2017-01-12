@@ -1,8 +1,8 @@
-(ns bank-of-shanghai-minimalistic-pad-project.app.dataflow.event.events
+(ns minimalistic-native-cljs.app.dataflow.event.events
   (:require
    [re-frame.core :refer [reg-event-db after]]
    [clojure.spec :as s]
-   [bank-of-shanghai-minimalistic-pad-project.app.dataflow.db.db :as db :refer [app-db]]))
+   [minimalistic-native-cljs.app.dataflow.db.db :as db :refer [app-db]]))
 
 ;; -- Interceptors ------------------------------------------------------------
 ;;

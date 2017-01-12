@@ -1,8 +1,8 @@
-(ns bank-of-shanghai-minimalistic-pad-project.app.core
+(ns minimalistic-native-cljs.app.core
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
-            [bank-of-shanghai-minimalistic-pad-project.app.dataflow.event.events]
-            [bank-of-shanghai-minimalistic-pad-project.app.dataflow.sub.subs]))
+            [minimalistic-native-cljs.app.dataflow.event.events]
+            [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
 (def ReactNative (js/require "react-native"))
 
