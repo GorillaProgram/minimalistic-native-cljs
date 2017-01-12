@@ -1,6 +1,7 @@
 (ns minimalistic-native-cljs.app.core
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
+            [minimalistic-native-cljs.app.main.modules.toast :refer [show-toast]]
             [minimalistic-native-cljs.app.dataflow.event.events]
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
@@ -15,7 +16,8 @@
 (def logo-img (js/require "./images/cljs.png"))
 
 (defn alert [title]
-      (.alert (.-Alert ReactNative) title))
+  (show-toast "Awesome")
+  (.alert (.-Alert ReactNative) title))
 
 (defn app-root-view []
   (let [greeting (subscribe [:get-greeting])]

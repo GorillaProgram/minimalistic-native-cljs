@@ -8,8 +8,9 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.minimalisticnativecljs.BuildConfig;
+import com.minimalisticnativecljs.modules.register.RegisterPackages;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -22,8 +23,9 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected List<ReactPackage> getPackages() {
-            return Collections.<ReactPackage>singletonList(
-                    new MainReactPackage()
+            return Arrays.asList(
+                    new MainReactPackage(),
+                    new RegisterPackages()
             );
         }
     };
