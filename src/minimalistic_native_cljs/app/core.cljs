@@ -5,13 +5,15 @@
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
             [minimalistic-native-cljs.app.main.modules.toast :refer [show-long-toast show-short-toast]]
             [minimalistic-native-cljs.app.main.modules.callback :refer [test-callback]]
+            [minimalistic-native-cljs.app.main.modules.jump-to-native :refer [to-activity]]
             [minimalistic-native-cljs.app.dataflow.event.events]
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
 (defn successCallback
   [message, actionType]
-  (show-long-toast actionType)
-  (show-alert message))
+  (to-activity "com.framework.pages.activity.TestActivity" {:params "jump to native"}))
+  ; (show-long-toast actionType)
+  ; (show-alert message))
 
 (defn errorCallback
   [message, actionType]
@@ -31,4 +33,4 @@
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
                              :on-press #(handle-click "success")}
-        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "Press Me"]]])))
+        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "Press Me!!"]]])))
