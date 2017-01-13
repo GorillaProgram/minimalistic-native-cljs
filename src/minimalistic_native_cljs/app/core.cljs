@@ -31,4 +31,4 @@
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
                              :on-press #(handle-click "success")}
-        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "Press Me~"]]])))
+        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "Press Me"]]])))
