@@ -8,8 +8,6 @@
             [minimalistic-native-cljs.app.dataflow.event.events]
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
-(def ReactNative (js/require "react-native"))
-
 (defn successCallback
   [message, actionType]
   (show-long-toast actionType)
