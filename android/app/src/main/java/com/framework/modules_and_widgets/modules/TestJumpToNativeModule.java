@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.ReadableMap;
 
 /**
  * package: com.framework.modules_and_widgets.modules
@@ -29,14 +28,14 @@ public class TestJumpToNativeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void jumpToNative(String activityName, ReadableMap params) {
+    public void jumpToNative(String activityName, String params) {
         try {
             Activity currentActivity = getCurrentActivity();
             if (currentActivity != null) {
                 System.out.println("------>>>> " + params);
 
                 Intent intent = new Intent(currentActivity, Class.forName(activityName));
-                intent.putExtra("params", "aaaaaaa");
+                intent.putExtra("params", params);
                 currentActivity.startActivity(intent);
             }
         } catch (ClassNotFoundException e) {
