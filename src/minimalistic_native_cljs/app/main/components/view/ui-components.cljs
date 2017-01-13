@@ -8,3 +8,7 @@
 (def view (r/adapt-react-class (.-View ReactNative)))
 (def image (r/adapt-react-class (.-Image ReactNative)))
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight ReactNative)))
+
+(defn show-alert
+  [message]
+  (.alert (.-Alert ReactNative) message))

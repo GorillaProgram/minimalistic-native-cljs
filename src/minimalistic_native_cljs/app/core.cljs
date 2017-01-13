@@ -1,7 +1,7 @@
 (ns minimalistic-native-cljs.app.core
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
-            [minimalistic-native-cljs.app.main.components.view.ui-components :refer [text view image touchable-highlight]]
+            [minimalistic-native-cljs.app.main.components.view.ui-components :refer [text view image touchable-highlight show-alert]]
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
             [minimalistic-native-cljs.app.main.modules.toast :refer [show-long-toast show-short-toast]]
             [minimalistic-native-cljs.app.main.modules.callback :refer [test-callback]]
@@ -13,12 +13,12 @@
 (defn successCallback
   [message, actionType]
   (show-long-toast actionType)
-  (.alert (.-Alert ReactNative) message))
+  (show-alert message))
 
 (defn errorCallback
   [message, actionType]
   (show-long-toast actionType)
-  (.alert (.-Alert ReactNative) message))
+  (show-alert message))
 
 (defn handle-click
   [message]
