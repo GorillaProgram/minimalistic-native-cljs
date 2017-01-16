@@ -6,6 +6,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.views.image.ReactImageManager;
+import com.framework.modules_and_widgets.modules.HttpModule;
 import com.framework.modules_and_widgets.modules.NotificationModule;
 import com.framework.modules_and_widgets.modules.PollingModule;
 import com.framework.modules_and_widgets.modules.TestCallbackModule;
@@ -50,6 +51,7 @@ public class RegisterPackages implements ReactPackage {
         modules.add(new TestJumpToNativeModule(reactContext));
         modules.add(new PollingModule(reactContext));
         modules.add(new NotificationModule(reactContext));
+        modules.add(new HttpModule(reactContext));
 
         return modules;
     }
