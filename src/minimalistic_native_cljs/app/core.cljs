@@ -4,6 +4,7 @@
             [minimalistic-native-cljs.app.main.components.view.ui-components :refer [text view image touchable-highlight show-alert]]
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
             [minimalistic-native-cljs.app.main.modules.toast :refer [show-long-toast show-short-toast]]
+            [minimalistic-native-cljs.app.main.modules.notification :refer [show-notification]]
             [minimalistic-native-cljs.app.main.modules.callback :refer [test-callback]]
             [minimalistic-native-cljs.app.main.modules.jump-to-native :refer [to-activity]]
             [minimalistic-native-cljs.app.main.utilities.data.json-utility :refer [to-string to-json]]
@@ -12,7 +13,8 @@
 
 (defn successCallback
   [message, actionType]
-  (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
+  (show-notification "new title" "new message")
+  ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (println (to-json {:params "jump to native"}))
   (show-long-toast actionType)
   (show-alert message))

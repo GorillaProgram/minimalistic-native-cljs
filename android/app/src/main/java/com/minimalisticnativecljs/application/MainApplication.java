@@ -7,6 +7,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.framework.utilities.NotificationUtility;
 import com.minimalisticnativecljs.BuildConfig;
 import com.framework.modules_and_widgets.register.RegisterPackages;
 
@@ -39,7 +40,14 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        initialize();
+    }
+
+    private void initialize() {
         SoLoader.init(this, /* native exopackage */ false);
+        // 初始化通知工具类
+        NotificationUtility.init(this);
     }
 
 }
