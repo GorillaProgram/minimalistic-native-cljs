@@ -35,8 +35,7 @@ public class PollingUtility {
 	 *            轮询服务
 	 * @param action
 	 */
-	public static void startPollingService(Context context, int seconds,
-			Class<?> cls, String action) {
+	public static void startPollingService(Context context, int seconds, Class<?> cls, String action) {
 		// 获取系统 AlarmManager 服务
 		AlarmManager manager = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
@@ -65,8 +64,7 @@ public class PollingUtility {
 	 *            轮询服务
 	 * @param action
 	 */
-	public static void stopPollingService(Context context, Class<?> cls,
-			String action) {
+	public static void stopPollingService(Context context, Class<?> cls, String action) {
 		AlarmManager manager = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);
 		Intent intent = new Intent(context, cls);
