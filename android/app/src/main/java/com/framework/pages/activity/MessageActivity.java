@@ -16,7 +16,6 @@ import android.os.Bundle;
  * Modifications:
  * 
  * @author MeePwn
- * @DateTime 2014-12-3 ����4:48:35
  * @version 1.0
  */
 public class MessageActivity extends Activity {
