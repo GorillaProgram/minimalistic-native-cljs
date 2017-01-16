@@ -16,7 +16,6 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * date: 2017/1/16 下午12:05
  * desc:
  */
-
 public class NotificationUtility {
 
     private static NotificationManager mManager;
