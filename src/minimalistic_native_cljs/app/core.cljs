@@ -19,7 +19,7 @@
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (println (to-json {:params "jump to native"}))
   ; (show-long-toast actionType)
-  ;(show-alert message)
+  ; (show-alert message)
   )
 
 (defn errorCallback
