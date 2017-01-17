@@ -5,7 +5,6 @@ import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.views.image.ReactImageManager;
 import com.framework.modules_and_widgets.modules.DBModule;
 import com.framework.modules_and_widgets.modules.NetworkModule;
 import com.framework.modules_and_widgets.modules.NotificationModule;
@@ -13,6 +12,7 @@ import com.framework.modules_and_widgets.modules.PollingModule;
 import com.framework.modules_and_widgets.modules.TestCallbackModule;
 import com.framework.modules_and_widgets.modules.TestJumpToNativeModule;
 import com.framework.modules_and_widgets.modules.TestToastModule;
+import com.framework.modules_and_widgets.widget.manager.CacheableImageViewManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,7 +38,7 @@ public class RegisterPackages implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new ReactImageManager()
+                new CacheableImageViewManager()
         );
     }
 

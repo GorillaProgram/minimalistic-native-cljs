@@ -12,3 +12,7 @@
 (defn show-alert
   [message]
   (.alert (.-Alert ReactNative) message))
+
+(defn simple-component [style message]
+  [view {:style {:flex-direction "column" :margin 40 :align-items "center"}}
+   [text {:style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"}} (message :text)]])

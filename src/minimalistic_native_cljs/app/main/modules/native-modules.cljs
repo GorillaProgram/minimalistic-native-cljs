@@ -1,5 +1,4 @@
-(ns minimalistic-native-cljs.app.main.modules.native
-  (:require [reagent.core :as r :refer [atom]]))
+(ns minimalistic-native-cljs.app.main.modules.native-modules)
 
 (def ReactNative (js/require "react-native"))
 

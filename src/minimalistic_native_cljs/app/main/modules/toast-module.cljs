@@ -1,6 +1,6 @@
 (ns minimalistic-native-cljs.app.main.modules.toast
   (:require [reagent.core :as r :refer [atom]]
-            [minimalistic-native-cljs.app.main.modules.native :refer [native-modules]]))
+            [minimalistic-native-cljs.app.main.modules.native-modules :refer [native-modules]]))
 
 (def toast-module (.-TestToastModule native-modules))
 
