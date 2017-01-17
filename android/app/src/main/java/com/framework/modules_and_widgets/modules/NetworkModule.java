@@ -11,15 +11,15 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
  * date: 2017/1/16 下午6:37
  * desc:
  */
-public class HttpModule extends ReactContextBaseJavaModule {
+public class NetworkModule extends ReactContextBaseJavaModule {
 
-    public HttpModule(ReactApplicationContext reactContext) {
+    public NetworkModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     public String getName() {
-        return "HttpModule";
+        return "NetworkModule";
     }
 
 }
