@@ -5,10 +5,12 @@
  */
 package com.framework.utilities;
 
+import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.SystemClock;
 
 import java.util.concurrent.TimeUnit;
@@ -37,6 +39,7 @@ public class PollingUtility {
 	 *            轮询服务
 	 * @param action
 	 */
+	@TargetApi(Build.VERSION_CODES.KITKAT)
 	public static void startPollingService(Context context, int seconds, Class<?> cls, String action) {
 		// 获取系统 AlarmManager 服务
 		AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -45,7 +48,6 @@ public class PollingUtility {
 		Intent intent = new Intent(context, cls);
 		intent.setAction(action);
 		PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
 		// 触发服务的起始时间
 		long triggerAtTime = SystemClock.elapsedRealtime();
 
