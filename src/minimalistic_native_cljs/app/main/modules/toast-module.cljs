@@ -2,19 +2,19 @@
   (:require [reagent.core :as r :refer [atom]]
             [minimalistic-native-cljs.app.main.modules.native :refer [native-modules]]))
 
-(def toast-modules (.-TestToastModule native-modules))
+(def toast-module (.-TestToastModule native-modules))
 
 (defn show-toast
   "toast"
   [message duration]
-  (.show toast-modules message duration))
+  (.show toast-module message duration))
 
 (defn show-long-toast
   "toast long time"
   [message]
-  (show-toast message (.-LONG toast-modules)))
+  (show-toast message (.-LONG toast-module)))
 
 (defn show-short-toast
   "toast short time"
   [message]
-  (show-toast message (.-SHORT toast-modules)))
+  (show-toast message (.-SHORT toast-module)))
