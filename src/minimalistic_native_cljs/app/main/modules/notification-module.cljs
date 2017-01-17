@@ -6,5 +6,5 @@
 
 (defn show-notification
   "show notification"
-  [title message]
-  (.showNotification notification-module title message))
+  [title message activityName]
+  (.showNotification notification-module title message activityName))

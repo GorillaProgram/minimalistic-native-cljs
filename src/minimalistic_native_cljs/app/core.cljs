@@ -14,8 +14,8 @@
 
 (defn successCallback
   [message, actionType]
-  (start-polling 3)
-  ; (show-notification "new title" "new message")
+  (start-polling 60)
+  ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (println (to-json {:params "jump to native"}))
   ; (show-long-toast actionType)
