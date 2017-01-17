@@ -7,17 +7,20 @@
             [minimalistic-native-cljs.app.main.modules.notification :refer [show-notification]]
             [minimalistic-native-cljs.app.main.modules.callback :refer [test-callback]]
             [minimalistic-native-cljs.app.main.modules.jump-to-native :refer [to-activity]]
+            [minimalistic-native-cljs.app.main.modules.polling :refer [start-polling stop-polling]]
             [minimalistic-native-cljs.app.main.utilities.data.json-utility :refer [to-string to-json]]
             [minimalistic-native-cljs.app.dataflow.event.events]
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
 (defn successCallback
   [message, actionType]
-  (show-notification "new title" "new message")
+  (start-polling 3)
+  ; (show-notification "new title" "new message")
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (println (to-json {:params "jump to native"}))
-  (show-long-toast actionType)
-  (show-alert message))
+  ; (show-long-toast actionType)
+  ;(show-alert message)
+  )
 
 (defn errorCallback
   [message, actionType]
