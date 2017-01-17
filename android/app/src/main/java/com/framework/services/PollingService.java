@@ -49,18 +49,10 @@ public class PollingService extends Service {
      *
      * @Author MeePwn
      */
-    int count = 0;
-
     class PollingThread extends Thread {
         @Override
         public void run() {
-            System.out.println("Polling...");
-            count++;
-            // 当计数能被5整除时, 弹出通知
-            if (count % 5 == 0) {
-                showNotification("title", "message");
-                System.out.println("New message!");
-            }
+            showNotification("title", "message");
         }
     }
 

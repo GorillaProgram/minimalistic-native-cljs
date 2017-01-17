@@ -3,7 +3,6 @@ package com.framework.modules_and_widgets.modules;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.framework.services.PollingService;
 import com.framework.utilities.PollingUtility;
 
 /**
@@ -27,13 +26,21 @@ public class PollingModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void startPolling(int duration) {
-        PollingUtility.startPollingService(getCurrentActivity(), duration, PollingService.class, PollingService.ACTION);
+    public void startPolling(String service, int duration) {
+        try {
+            PollingUtility.startPollingService(getCurrentActivity(), duration, Class.forName(service), service);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @ReactMethod
-    public void stopPolling() {
-        PollingUtility.stopPollingService(getCurrentActivity(), PollingService.class, PollingService.ACTION);
+    public void stopPolling(String service) {
+        try {
+            PollingUtility.stopPollingService(getCurrentActivity(), Class.forName(service), service);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }
