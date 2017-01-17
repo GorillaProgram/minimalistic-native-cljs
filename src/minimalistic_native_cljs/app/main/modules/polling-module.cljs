@@ -6,10 +6,10 @@
 
 (defn start-polling
   "start polling service"
-  [duration]
-  (.startPolling polling-module duration))
+  [service duration]
+  (.startPolling polling-module service duration))
 
 (defn stop-polling
   "stop polling service"
-  []
-  (.stopPolling polling-module))
+  [service]
+  (.stopPolling polling-module service))

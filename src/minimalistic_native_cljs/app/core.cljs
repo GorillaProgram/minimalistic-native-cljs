@@ -3,6 +3,7 @@
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
             [minimalistic-native-cljs.app.main.components.view.ui-components :refer [text view image touchable-highlight show-alert]]
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
+            [minimalistic-native-cljs.app.main.constant.service-types :refer [polling-service]]
             [minimalistic-native-cljs.app.main.modules.toast :refer [show-long-toast show-short-toast]]
             [minimalistic-native-cljs.app.main.modules.notification :refer [show-notification]]
             [minimalistic-native-cljs.app.main.modules.callback :refer [test-callback]]
@@ -13,8 +14,8 @@
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
 (defn successCallback
-  [message, actionType]
-  (start-polling 60))
+  [message actionType]
+  (start-polling polling-service 60))
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (println (to-json {:params "jump to native"}))
@@ -23,7 +24,7 @@
 
 
 (defn errorCallback
-  [message, actionType]
+  [message actionType]
   (show-long-toast actionType)
   (show-alert message))
 
