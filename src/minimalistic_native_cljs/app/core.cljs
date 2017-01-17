@@ -43,5 +43,5 @@
        [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
                              :on-press #(handle-click "success")}
         [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "Press Me"]]
-       [simple-component {:style {:background-color "#00f"}} {:text "Press Me"}]
+       [simple-component {:style {:background-color "#00f"}} {:text "some message"}]
        ])))
