@@ -11,6 +11,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
  * date: 2017/1/16 下午6:37
  * desc:
  */
+
 public class NetworkModule extends ReactContextBaseJavaModule {
 
     public NetworkModule(ReactApplicationContext reactContext) {

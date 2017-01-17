@@ -12,15 +12,14 @@ import android.content.Intent;
 import android.os.SystemClock;
 
 /**
- * Class Name: PollingUtility.java
- * 
- * Function: 轮询工具类
- * 
- * Modifications:
- * 
- * @author MeePwn
- * @version 1.0
+ * package: com.framework.utilities
+ * author: MeePwn
+ * email: maybewaityou@gmail.com
+ * github: https://github.com/maybewaityou
+ * date: 2017/1/13 上午11:31
+ * desc:
  */
+
 public class PollingUtility {
 
 	/**

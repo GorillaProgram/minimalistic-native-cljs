@@ -16,6 +16,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * date: 2017/1/16 下午12:05
  * desc:
  */
+
 public class NotificationUtility {
 
     private static NotificationManager mManager;
@@ -27,7 +28,6 @@ public class NotificationUtility {
     }
 
     public static void showNotification(int icon, String title, String message, Class cls) {
-        System.out.println("-------------------------");
         // 点击通知栏, 进入相应页面
         Intent i = new Intent(mContext, cls);
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);

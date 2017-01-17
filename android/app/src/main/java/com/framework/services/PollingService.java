@@ -12,15 +12,14 @@ import com.framework.utilities.NotificationUtility;
 import com.minimalisticnativecljs.R;
 
 /**
- * Class Name: PollingService.java
- *
- * Function:
- *
- * Modifications:
- *
- * @author MeePwn
- * @version 1.0
+ * package: com.framework.pages.activity
+ * author: MeePwn
+ * email: maybewaityou@gmail.com
+ * github: https://github.com/maybewaityou
+ * date: 2017/1/13 上午11:31
+ * desc:
  */
+
 public class PollingService extends Service {
 
     public static final String ACTION = "com.framework.services.PollingService";
@@ -37,13 +36,12 @@ public class PollingService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // new PollingThread().start();
-        showNotification();
+         new PollingThread().start();
         return super.onStartCommand(intent, flags, startId);
     }
 
-    private void showNotification() {
-        NotificationUtility.showNotification(R.mipmap.ic_launcher, "title", "message", MessageActivity.class);
+    private void showNotification(String title, String message) {
+        NotificationUtility.showNotification(R.mipmap.ic_launcher, title, message, MessageActivity.class);
     }
 
     /**
@@ -60,7 +58,7 @@ public class PollingService extends Service {
             count++;
             // 当计数能被5整除时, 弹出通知
             if (count % 5 == 0) {
-                showNotification();
+                showNotification("title", "message");
                 System.out.println("New message!");
             }
         }
