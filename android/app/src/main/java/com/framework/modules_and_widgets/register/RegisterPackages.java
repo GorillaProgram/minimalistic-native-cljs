@@ -12,6 +12,7 @@ import com.framework.modules_and_widgets.modules.PollingModule;
 import com.framework.modules_and_widgets.modules.TestCallbackModule;
 import com.framework.modules_and_widgets.modules.TestJumpToNativeModule;
 import com.framework.modules_and_widgets.modules.TestToastModule;
+import com.framework.modules_and_widgets.modules.UIModule;
 import com.framework.modules_and_widgets.widget.manager.CacheableImageViewManager;
 
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ public class RegisterPackages implements ReactPackage {
         modules.add(new TestToastModule(reactContext));
         modules.add(new TestCallbackModule(reactContext));
         modules.add(new TestJumpToNativeModule(reactContext));
+        modules.add(new UIModule(reactContext));
         modules.add(new PollingModule(reactContext));
         modules.add(new NotificationModule(reactContext));
         modules.add(new NetworkModule(reactContext));
