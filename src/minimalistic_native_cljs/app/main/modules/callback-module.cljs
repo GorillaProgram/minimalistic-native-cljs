@@ -5,5 +5,5 @@
 (def callback-module (.-TestCallbackModule native-modules))
 
 (defn test-callback
-  [actionType successCallback errorCallback]
-  (.callbackByActionType callback-module actionType successCallback errorCallback))
+  [action-type success-callback error-callback]
+  (.callbackByActionType callback-module action-type success-callback error-callback))

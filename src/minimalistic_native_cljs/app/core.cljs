@@ -14,24 +14,23 @@
             [minimalistic-native-cljs.app.dataflow.event.events]
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
 
-(defn successCallback
-  [message actionType]
+(defn success-callback
+  [message action-type]
   (start-polling polling-service 60))
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (println (to-json {:params "jump to native"}))
-  ; (show-long-toast actionType)
+  ; (show-long-toast action-type)
   ; (show-alert message)
 
-
-(defn errorCallback
-  [message actionType]
-  (show-long-toast actionType)
+(defn error-callback
+  [message action-type]
+  (show-long-toast action-type)
   (show-alert message))
 
 (defn handle-click
   [message]
-  (test-callback message successCallback errorCallback))
+  (test-callback message success-callback error-callback))
 
 (defn app-root-view []
   (let [greeting (subscribe [:get-greeting])]
