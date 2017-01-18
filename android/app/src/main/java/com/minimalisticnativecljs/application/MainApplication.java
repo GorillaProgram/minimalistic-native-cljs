@@ -47,6 +47,7 @@ public class MainApplication extends Application implements ReactApplication {
 
     private void initialize() {
         SoLoader.init(this, /* native exopackage */ false);
+
         // 初始化 Notification 工具类
         NotificationUtility.init(this);
         // 初始化 Dialog 工具类
