@@ -31,11 +31,6 @@ public class UIModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void showSuccess(String message) {
-
-    }
-
-    @ReactMethod
     public void showSuccess(String message, Callback positiveAction) {
 
     }
@@ -44,12 +39,6 @@ public class UIModule extends ReactContextBaseJavaModule {
     public void showSuccess(String message, Callback positiveAction, Callback negativeAction) {
 
     }
-
-    @ReactMethod
-    public void showMessage(String message) {
-
-    }
-
     @ReactMethod
     public void showMessage(String message, Callback positiveAction) {
 
@@ -57,11 +46,6 @@ public class UIModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void showMessage(String message, Callback positiveAction, Callback negativeAction) {
-
-    }
-
-    @ReactMethod
-    public void showFailure(String message) {
 
     }
 
