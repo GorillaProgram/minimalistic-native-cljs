@@ -52,6 +52,7 @@ public class MainApplication extends Application implements ReactApplication {
         NotificationUtility.init(this);
         // 初始化 Dialog 工具类
         DialogUtility.init(this);
+
     }
 
 }
