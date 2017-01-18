@@ -1,7 +1,7 @@
 (ns minimalistic-native-cljs.app.core
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
-            [minimalistic-native-cljs.app.main.components.view.ui-components :refer [simple-component text view image touchable-highlight show-alert]]
+            [minimalistic-native-cljs.app.main.components.view.ui-components :refer [button simple-component text view image touchable-highlight show-alert]]
             [minimalistic-native-cljs.app.main.components.view.cacheable-image-view :refer []]
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
             [minimalistic-native-cljs.app.main.constant.service-types :refer [polling-service]]
@@ -40,7 +40,8 @@
        [text {:style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"}} @greeting]
        [image {:source logo-img
                :style  {:width 80 :height 80 :margin-bottom 30}}]
-       [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
-                             :on-press #(handle-click "success")}
-        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "Press Me"]]
+       [button {:button-style {:background-color "#00f"}
+                :text-style {:color "white"}
+                :text "button ~"}
+        #(handle-click "success")]
        [simple-component {:style {:background-color "#00f"} :text "some message"}]])))
