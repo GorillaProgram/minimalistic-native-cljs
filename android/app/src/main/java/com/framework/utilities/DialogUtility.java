@@ -1,5 +1,10 @@
 package com.framework.utilities;
 
+import android.app.NotificationManager;
+import android.content.Context;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
+
 /**
  * package: com.framework.utilities
  * author: MeePwn
@@ -11,6 +16,10 @@ package com.framework.utilities;
 
 public class DialogUtility {
 
+    private static Context mContext;
 
+    public static void init(Context context) {
+        mContext = context;
+    }
 
 }
