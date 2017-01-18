@@ -1,7 +1,7 @@
 (ns minimalistic-native-cljs.app.core
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
-            [minimalistic-native-cljs.app.main.components.view.ui-components :refer [button simple-component text view image touchable-highlight show-alert]]
+            [minimalistic-native-cljs.app.main.components.view.ui-components :as ui :refer [button simple-component text view image touchable-highlight show-alert]]
             [minimalistic-native-cljs.app.main.components.view.cacheable-image-view :refer []]
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
             [minimalistic-native-cljs.app.main.constant.service-types :refer [polling-service]]
