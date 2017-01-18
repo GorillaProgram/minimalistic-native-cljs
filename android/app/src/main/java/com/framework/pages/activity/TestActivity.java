@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.framework.pages.widget.ProgressBarDialog;
 import com.minimalisticnativecljs.R;
 
 /**
@@ -36,6 +37,11 @@ public class TestActivity extends Activity {
 
     private void initViews() {
         mTextView = (TextView) findViewById(R.id.textView);
+
+        new ProgressBarDialog.Builder(this)
+//                .setMessage("这个就是自定义的提示框")
+                .create()
+                .show();
     }
 
     private void setupViews() {
