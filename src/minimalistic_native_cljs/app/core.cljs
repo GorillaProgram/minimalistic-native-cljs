@@ -29,7 +29,7 @@
   (show-long-toast action-type)
   (show-alert message))
 
-(defn handle-click
+(defn handle-press
   [message]
   (test-callback message success-callback error-callback))
 
@@ -42,6 +42,7 @@
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [button {:button-style {:background-color "#00f"}
                 :text-style {:color "white"}
-                :text "button ~"}
-        #(handle-click "success")]
-       [simple-component {:style {:background-color "#00f"} :text "some message"}]])))
+                :text "button ~"
+                :on-press #(handle-press "success")}]
+       [simple-component {:style {:background-color "#00f"}
+                          :text "some message"}]])))

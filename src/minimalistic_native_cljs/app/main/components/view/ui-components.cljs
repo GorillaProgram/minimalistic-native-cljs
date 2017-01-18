@@ -18,10 +18,12 @@
 ; ============================== Common components end ====================================
 
 (defn show-alert
+  "show alert use react native alert"
   [message]
   (.alert (.-Alert ReactNative) message))
 
 (defn simple-component
+  "test component"
   [params]
   [view {:style {:flex-direction "column" :margin 40 :align-items "center"}}
    [text {:style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"}} (params :text)]])
@@ -29,8 +31,8 @@
 ; ============================== customer components start ====================================
 (defn button
   "button"
-  [params handler]
+  [params]
   [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
-                        :on-press handler}
-        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} (params :text)]])
+                        :on-press (:on-press params)}
+        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} (:text params)]])
 ; ============================== customer components end ====================================
