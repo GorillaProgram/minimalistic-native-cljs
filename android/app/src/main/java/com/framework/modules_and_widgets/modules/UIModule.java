@@ -3,6 +3,7 @@ package com.framework.modules_and_widgets.modules;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.UiThreadUtil;
 import com.framework.pages.widget.manager.ProgressBarDialogManager;
 
 /**
@@ -27,27 +28,47 @@ public class UIModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void showLoading() {
-        ProgressBarDialogManager.showProgressBar();
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                ProgressBarDialogManager.showProgressBar();
+            }
+        });
     }
 
     @ReactMethod
-    public void showLoadingWithMessage(String message) {
-        ProgressBarDialogManager.showProgressBar(message);
+    public void showLoadingWithMessage(final String message) {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                ProgressBarDialogManager.showProgressBar(message);
+            }
+        });
     }
 
     @ReactMethod
-    public void showLoadingCouldCancelable(boolean couldCancelable) {
-        ProgressBarDialogManager.showProgressBar(couldCancelable);
+    public void showLoadingCouldCancelable(final boolean couldCancelable) {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                ProgressBarDialogManager.showProgressBar(couldCancelable);
+            }
+        });
     }
 
     @ReactMethod
-    public void showLoadingCouldCancelableWithMessage(boolean couldCancelable, String message) {
-        ProgressBarDialogManager.showProgressBar(couldCancelable, message);
+    public void showLoadingCouldCancelableWithMessage(final boolean couldCancelable, final String message) {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                ProgressBarDialogManager.showProgressBar(couldCancelable, message);
+            }
+        });
     }
 
     @ReactMethod
     public void dismissLoading() {
-        ProgressBarDialogManager.dismissProgressBar();
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                ProgressBarDialogManager.dismissProgressBar();
+            }
+        });
     }
 
 }

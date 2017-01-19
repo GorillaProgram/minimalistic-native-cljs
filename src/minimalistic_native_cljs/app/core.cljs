@@ -20,8 +20,8 @@
   ; (start-polling polling-service 60)
   ; (dispatch [:set-greeting "Hello Native World!"])
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
-  (show-uncancelable-loading)
-  (dismiss-loading)
+  (show-loading)
+  ; (dismiss-loading)
   )
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (println (to-json {:params "jump to native"}))
@@ -46,7 +46,7 @@
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [button {:button-style {:background-color "#00f"}
                 :text-style {:color "white"}
-                :text "button ~"
+                :text "button ~~~"
                 :on-press #(handle-press "success")}]
        [simple-component {:style {:background-color "#00f"}
                           :text "some message"}]])))
