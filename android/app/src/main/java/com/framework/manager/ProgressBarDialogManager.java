@@ -30,62 +30,45 @@ public class ProgressBarDialogManager {
      * 显示 ProgressBar
      */
     public static void showProgressBar() {
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            public void run() {
-                mProgressBarDialog.show();
-            }
-        });
+        UiThreadUtil.runOnUiThread(() -> mProgressBarDialog.show());
     }
 
     /**
      * 显示 ProgressBar (带文字)
      */
     public static void showProgressBar(final String message) {
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            public void run() {
+        UiThreadUtil.runOnUiThread(() ->
                 mProgressBarDialog
-                        .setMessage(message)
-                        .show();
-            }
-        });
+                .setMessage(message)
+                .show());
     }
 
     /**
      * 显示 ProgressBar (点击不会消失)
      */
     public static void showProgressBar(final boolean couldCancelable) {
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            public void run() {
+        UiThreadUtil.runOnUiThread(() ->
                 mProgressBarDialog
-                        .setCouldCancelable(couldCancelable)
-                        .show();
-            }
-        });
+                .setCouldCancelable(couldCancelable)
+                .show());
     }
 
     /**
      * 显示 ProgressBar (带文字, 点击不会消失)
      */
     public static void showProgressBar(final boolean couldCancelable, final String message) {
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            public void run() {
+        UiThreadUtil.runOnUiThread(() ->
                 mProgressBarDialog
-                        .setCouldCancelable(couldCancelable)
-                        .setMessage(message)
-                        .show();
-            }
-        });
+                .setCouldCancelable(couldCancelable)
+                .setMessage(message)
+                .show());
     }
 
     /**
      * 关闭 ProgressBar
      */
     public static void dismissProgressBar() {
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            public void run() {
-                mProgressBarDialog.dismiss();
-            }
-        });
+        UiThreadUtil.runOnUiThread(() -> mProgressBarDialog.dismiss());
     }
 
 }

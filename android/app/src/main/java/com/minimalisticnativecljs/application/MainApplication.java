@@ -9,6 +9,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.framework.modules_and_widgets.register.RegisterPackages;
 import com.minimalisticnativecljs.BuildConfig;
+import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,6 +46,13 @@ public class MainApplication extends Application implements ReactApplication {
 
     private void initialize() {
         SoLoader.init(this, /* native exopackage */ false);
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
     }
 
 }
