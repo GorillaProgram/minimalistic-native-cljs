@@ -2,7 +2,7 @@
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
             [minimalistic-native-cljs.app.main.components.view.ui-components :as ui :refer [button simple-component text view image touchable-highlight show-alert]]
-            [minimalistic-native-cljs.app.main.modules.ui-module :refer [show-loading show-uncancelable-loading dismiss-loading]]
+            [minimalistic-native-cljs.app.main.modules.ui-module :refer [show-loading show-message-loading show-uncancelable-loading dismiss-loading]]
             [minimalistic-native-cljs.app.main.components.view.cacheable-image-view :refer []]
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
             [minimalistic-native-cljs.app.main.constant.service-types :refer [polling-service]]
@@ -19,9 +19,9 @@
   [message action-type]
   ; (start-polling polling-service 60)
   ; (dispatch [:set-greeting "Hello Native World!"])
-  ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
-  (show-loading)
+  (show-message-loading "正在修改中, 请稍后...")
   ; (dismiss-loading)
+  ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   )
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (println (to-json {:params "jump to native"}))
@@ -46,7 +46,7 @@
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [button {:button-style {:background-color "#00f"}
                 :text-style {:color "white"}
-                :text "button ~~~"
+                :text "button ~"
                 :on-press #(handle-press "success")}]
        [simple-component {:style {:background-color "#00f"}
                           :text "some message"}]])))

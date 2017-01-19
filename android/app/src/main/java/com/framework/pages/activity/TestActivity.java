@@ -38,7 +38,6 @@ public class TestActivity extends UIActivity {
     @Override
     public void initViews() {
         mTextView = (TextView) findViewById(R.id.textView);
-
     }
 
     @Override

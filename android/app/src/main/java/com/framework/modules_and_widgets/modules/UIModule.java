@@ -3,7 +3,6 @@ package com.framework.modules_and_widgets.modules;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.UiThreadUtil;
 import com.framework.pages.widget.manager.ProgressBarDialogManager;
 
 /**
@@ -28,37 +27,27 @@ public class UIModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void showLoading() {
-        UiThreadUtil.runOnUiThread(() -> {
-            ProgressBarDialogManager.showProgressBar();
-        });
+        ProgressBarDialogManager.showProgressBar();
     }
 
     @ReactMethod
-    public void showLoadingWithMessage(String message) {
-        UiThreadUtil.runOnUiThread(() -> {
-            ProgressBarDialogManager.showProgressBar(message);
-        });
+    public void showLoadingWithMessage(final String message) {
+        ProgressBarDialogManager.showProgressBar(message);
     }
 
     @ReactMethod
-    public void showLoadingCouldCancelable(boolean couldCancelable) {
-        UiThreadUtil.runOnUiThread(() -> {
-            ProgressBarDialogManager.showProgressBar(couldCancelable);
-        });
+    public void showLoadingCouldCancelable(final boolean couldCancelable) {
+        ProgressBarDialogManager.showProgressBar(couldCancelable);
     }
 
     @ReactMethod
-    public void showLoadingCouldCancelableWithMessage(boolean couldCancelable, String message) {
-        UiThreadUtil.runOnUiThread(() -> {
-            ProgressBarDialogManager.showProgressBar(couldCancelable, message);
-        });
+    public void showLoadingCouldCancelableWithMessage(final boolean couldCancelable, final String message) {
+        ProgressBarDialogManager.showProgressBar(couldCancelable, message);
     }
 
     @ReactMethod
     public void dismissLoading() {
-        UiThreadUtil.runOnUiThread(() -> {
-            ProgressBarDialogManager.dismissProgressBar();
-        });
+        ProgressBarDialogManager.dismissProgressBar();
     }
 
 }

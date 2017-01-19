@@ -2,6 +2,7 @@ package com.framework.pages.widget.manager;
 
 import android.content.Context;
 
+import com.facebook.react.bridge.UiThreadUtil;
 import com.framework.pages.widget.ProgressBarDialog;
 
 /**
@@ -29,42 +30,62 @@ public class ProgressBarDialogManager {
      * 显示 ProgressBar
      */
     public static void showProgressBar() {
-        mProgressBarDialog.show();
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                mProgressBarDialog.show();
+            }
+        });
     }
 
     /**
      * 显示 ProgressBar (带文字)
      */
-    public static void showProgressBar(String message) {
-        mProgressBarDialog
-                .setMessage(message)
-                .show();
+    public static void showProgressBar(final String message) {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                mProgressBarDialog
+                        .setMessage(message)
+                        .show();
+            }
+        });
     }
 
     /**
      * 显示 ProgressBar (点击不会消失)
      */
-    public static void showProgressBar(boolean couldCancelable) {
-        mProgressBarDialog
-                .setCouldCancelable(couldCancelable)
-                .show();
+    public static void showProgressBar(final boolean couldCancelable) {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                mProgressBarDialog
+                        .setCouldCancelable(couldCancelable)
+                        .show();
+            }
+        });
     }
 
     /**
      * 显示 ProgressBar (带文字, 点击不会消失)
      */
-    public static void showProgressBar(boolean couldCancelable, String message) {
-        mProgressBarDialog
-                .setCouldCancelable(couldCancelable)
-                .setMessage(message)
-                .show();
+    public static void showProgressBar(final boolean couldCancelable, final String message) {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                mProgressBarDialog
+                        .setCouldCancelable(couldCancelable)
+                        .setMessage(message)
+                        .show();
+            }
+        });
     }
 
     /**
      * 关闭 ProgressBar
      */
     public static void dismissProgressBar() {
-        mProgressBarDialog.dismiss();
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            public void run() {
+                mProgressBarDialog.dismiss();
+            }
+        });
     }
 
 }
