@@ -19,7 +19,7 @@
   [message action-type]
   ; (start-polling polling-service 60)
   ; (dispatch [:set-greeting "Hello Native World!"])
-  (show-message-loading "正在修改中, 请稍后...")
+  (show-loading)
   ; (dismiss-loading)
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   )
