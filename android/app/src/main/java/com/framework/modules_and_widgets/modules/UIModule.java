@@ -3,7 +3,7 @@ package com.framework.modules_and_widgets.modules;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.framework.pages.widget.manager.ProgressBarDialogManager;
+import com.framework.manager.ProgressBarDialogManager;
 
 /**
  * package: com.framework.modules_and_widgets.modules

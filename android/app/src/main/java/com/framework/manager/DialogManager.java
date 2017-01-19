@@ -1,11 +1,11 @@
-package com.framework.pages.widget.manager;
+package com.framework.manager;
 
 import android.content.Context;
 
 import com.facebook.react.bridge.Callback;
 
 /**
- * package: com.framework.pages.widget.manager
+ * package: com.framework.manager
  * author: MeePwn
  * email: maybewaityou@gmail.com
  * github: https://github.com/maybewaityou

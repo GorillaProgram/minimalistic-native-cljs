@@ -1,4 +1,4 @@
-package com.framework.pages.widget.manager;
+package com.framework.manager;
 
 import android.content.Context;
 

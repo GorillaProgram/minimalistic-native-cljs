@@ -1,4 +1,4 @@
-package com.framework.utilities;
+package com.framework.manager;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;

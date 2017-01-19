@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import com.framework.pages.activity.MessageActivity;
-import com.framework.utilities.NotificationCenterManager;
+import com.framework.manager.NotificationCenterManager;
 import com.minimalisticnativecljs.R;
 
 /**

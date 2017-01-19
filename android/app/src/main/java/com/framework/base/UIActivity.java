@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
 import com.framework.initialize.UIInitialized;
-import com.framework.pages.widget.manager.DialogManager;
-import com.framework.pages.widget.manager.ProgressBarDialogManager;
-import com.framework.utilities.NotificationCenterManager;
+import com.framework.manager.DialogManager;
+import com.framework.manager.ProgressBarDialogManager;
+import com.framework.manager.NotificationCenterManager;
 
 /**
  * package: com.framework.base
