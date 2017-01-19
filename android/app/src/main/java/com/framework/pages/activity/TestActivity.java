@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.framework.base.UIActivity;
-import com.framework.pages.widget.manager.ProgressBarDialogManager;
 import com.minimalisticnativecljs.R;
 
 /**
@@ -40,7 +39,6 @@ public class TestActivity extends UIActivity {
     public void initViews() {
         mTextView = (TextView) findViewById(R.id.textView);
 
-        ProgressBarDialogManager.showProgressBar("正在加载中, 请稍后...");
     }
 
     @Override

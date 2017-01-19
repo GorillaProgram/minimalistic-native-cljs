@@ -2,6 +2,7 @@
   (:require [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
             [minimalistic-native-cljs.app.main.components.view.ui-components :as ui :refer [button simple-component text view image touchable-highlight show-alert]]
+            [minimalistic-native-cljs.app.main.modules.ui-module :refer [show-loading show-uncancelable-loading dismiss-loading]]
             [minimalistic-native-cljs.app.main.components.view.cacheable-image-view :refer []]
             [minimalistic-native-cljs.app.main.constant.image-path :refer [logo-img]]
             [minimalistic-native-cljs.app.main.constant.service-types :refer [polling-service]]
@@ -16,9 +17,11 @@
 
 (defn success-callback
   [message action-type]
-  (start-polling polling-service 60)
-  (dispatch [:set-greeting "Hello Native World!"])
-  (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"})))
+  ; (start-polling polling-service 60)
+  ; (dispatch [:set-greeting "Hello Native World!"])
+  ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
+  (show-uncancelable-loading)
+  )
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (println (to-json {:params "jump to native"}))
   ; (show-long-toast action-type)

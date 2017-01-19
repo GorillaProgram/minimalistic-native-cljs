@@ -3,6 +3,7 @@ package com.framework.modules_and_widgets.modules;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.framework.pages.widget.manager.ProgressBarDialogManager;
 
 /**
  * package: com.framework.modules_and_widgets.modules
@@ -25,18 +26,28 @@ public class UIModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void showLoading(String message) {
+    public void showLoading() {
+        ProgressBarDialogManager.showProgressBar();
+    }
 
+    @ReactMethod
+    public void showLoadingWithMessage(String message) {
+        ProgressBarDialogManager.showProgressBar(message);
+    }
+
+    @ReactMethod
+    public void showLoadingCouldCancelable(boolean couldCancelable) {
+        ProgressBarDialogManager.showProgressBar(couldCancelable);
+    }
+
+    @ReactMethod
+    public void showLoadingCouldCancelableWithMessage(boolean couldCancelable, String message) {
+        ProgressBarDialogManager.showProgressBar(couldCancelable, message);
     }
 
     @ReactMethod
     public void dismissLoading() {
-
-    }
-
-    @ReactMethod
-    public void showDialog(String message, String dialogType) {
-
+        ProgressBarDialogManager.dismissProgressBar();
     }
 
 }
