@@ -21,6 +21,7 @@
   ; (dispatch [:set-greeting "Hello Native World!"])
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   (show-uncancelable-loading)
+  (dismiss-loading)
   )
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (println (to-json {:params "jump to native"}))
