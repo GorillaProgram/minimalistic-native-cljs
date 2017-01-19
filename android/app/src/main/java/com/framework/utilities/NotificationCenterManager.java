@@ -17,7 +17,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * desc:
  */
 
-public class NotificationUtility {
+public class NotificationCenterManager {
 
     private static NotificationManager mManager;
     private static Context mContext;

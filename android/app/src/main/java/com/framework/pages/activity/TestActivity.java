@@ -1,10 +1,10 @@
 package com.framework.pages.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.framework.pages.widget.ProgressBarDialog;
+import com.framework.base.UIActivity;
+import com.framework.pages.widget.manager.ProgressBarDialogManager;
 import com.minimalisticnativecljs.R;
 
 /**
@@ -16,7 +16,7 @@ import com.minimalisticnativecljs.R;
  * desc:
  */
 
-public class TestActivity extends Activity {
+public class TestActivity extends UIActivity {
 
     private TextView mTextView;
     private String mParams;
@@ -38,10 +38,7 @@ public class TestActivity extends Activity {
     private void initViews() {
         mTextView = (TextView) findViewById(R.id.textView);
 
-        new ProgressBarDialog.Builder(this)
-//                .setMessage("这个就是自定义的提示框")
-                .create()
-                .show();
+        ProgressBarDialogManager.showProgressBar();
     }
 
     private void setupViews() {

@@ -1,19 +1,19 @@
-package com.framework.utilities;
+package com.framework.pages.widget.manager;
 
 import android.content.Context;
 
 import com.facebook.react.bridge.Callback;
 
 /**
- * package: com.framework.utilities
+ * package: com.framework.pages.widget.manager
  * author: MeePwn
  * email: maybewaityou@gmail.com
  * github: https://github.com/maybewaityou
- * date: 2017/1/18 下午1:49
+ * date: 2017/1/19 上午8:47
  * desc:
  */
 
-public class DialogUtility {
+public class DialogManager {
 
     /* dialog type start */
     public static String DIALOG_SUCCESS_TYPE = "success";
