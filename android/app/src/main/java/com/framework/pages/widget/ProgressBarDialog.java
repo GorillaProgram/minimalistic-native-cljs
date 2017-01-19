@@ -39,6 +39,11 @@ public class ProgressBarDialog extends Dialog {
         return this;
     }
 
+    public ProgressBarDialog setCouldCancelable(boolean couldCancelable) {
+        this.setCancelable(couldCancelable);
+        return this;
+    }
+
     public static class Builder {
 
         private Context context;

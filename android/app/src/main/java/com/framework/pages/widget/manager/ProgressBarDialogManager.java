@@ -42,6 +42,25 @@ public class ProgressBarDialogManager {
     }
 
     /**
+     * 显示 ProgressBar (点击不会消失)
+     */
+    public static void showProgressBar(boolean couldCancelable) {
+        mProgressBarDialog
+                .setCouldCancelable(couldCancelable)
+                .show();
+    }
+
+    /**
+     * 显示 ProgressBar (带文字, 点击不会消失)
+     */
+    public static void showProgressBar(boolean couldCancelable, String message) {
+        mProgressBarDialog
+                .setCouldCancelable(couldCancelable)
+                .setMessage(message)
+                .show();
+    }
+
+    /**
      * 关闭 ProgressBar
      */
     public static void dismissProgressBar() {

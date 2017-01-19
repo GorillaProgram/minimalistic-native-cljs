@@ -12,6 +12,11 @@ package com.framework.initialize;
 public interface UIInitialized extends Initialize {
 
     /**
+     * 设置 activity 布局
+     */
+    public void setContentView();
+
+    /**
      * 初始化数据
      */
     public void initData();

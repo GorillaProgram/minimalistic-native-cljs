@@ -1,9 +1,9 @@
 package com.framework.base;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import com.framework.initialize.Initialize;
+import com.facebook.react.ReactActivity;
+import com.framework.initialize.UIInitialized;
 import com.framework.pages.widget.manager.DialogManager;
 import com.framework.pages.widget.manager.ProgressBarDialogManager;
 import com.framework.utilities.NotificationCenterManager;
@@ -17,13 +17,17 @@ import com.framework.utilities.NotificationCenterManager;
  * desc:
  */
 
-public abstract class UIActivity extends Activity implements Initialize {
+public abstract class UIActivity extends ReactActivity implements UIInitialized {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setContentView();
         super.onCreate(savedInstanceState);
 
         initialize();
+        initData();
+        initViews();
+        setupViews();
     }
 
     @Override
@@ -35,6 +39,7 @@ public abstract class UIActivity extends Activity implements Initialize {
         DialogManager.init(this);
         // 初始化 ProgressBarDialog 管理类
         ProgressBarDialogManager.init(this);
+
     }
 
 }

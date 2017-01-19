@@ -1,8 +1,9 @@
 package com.minimalisticnativecljs.pages;
 
-import com.facebook.react.ReactActivity;
+import com.framework.base.UIActivity;
+import com.framework.pages.widget.manager.ProgressBarDialogManager;
 
-public class MainActivity extends ReactActivity {
+public class MainActivity extends UIActivity {
 
     /**
      * Returns the name of the main component registered from JavaScript.
@@ -11,6 +12,26 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "MinimalisticNativeCljs";
+    }
+
+    @Override
+    public void setContentView() {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initViews() {
+
+    }
+
+    @Override
+    public void setupViews() {
+        ProgressBarDialogManager.showProgressBar("正在加载中!!!!");
     }
 
 }

@@ -24,24 +24,27 @@ public class TestActivity extends UIActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
-
-        initData();
-        initViews();
-        setupViews();
     }
 
-    private void initData() {
+    @Override
+    public void setContentView() {
+        setContentView(R.layout.activity_test);
+    }
+
+    @Override
+    public void initData() {
         mParams = getIntent().getStringExtra("params");
     }
 
-    private void initViews() {
+    @Override
+    public void initViews() {
         mTextView = (TextView) findViewById(R.id.textView);
 
-        ProgressBarDialogManager.showProgressBar();
+        ProgressBarDialogManager.showProgressBar("正在加载中, 请稍后...");
     }
 
-    private void setupViews() {
+    @Override
+    public void setupViews() {
         mTextView.setText(mParams);
     }
 
