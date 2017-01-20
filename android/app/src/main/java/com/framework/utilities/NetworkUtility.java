@@ -22,8 +22,9 @@ public class NetworkUtility {
     public static void sendRequest(String url, String paramsString, NetworkResult networkResult) {
         try {
             JSONObject params = new JSONObject(paramsString);
-            Map<String, String> responseMap = new HashMap<>();
+            Map responseMap = new HashMap<>();
             responseMap.put("url", url);
+            responseMap.put("data", params);
             networkResult.onSuccess(new JSONObject(responseMap));
         } catch (JSONException e) {
             e.printStackTrace();
