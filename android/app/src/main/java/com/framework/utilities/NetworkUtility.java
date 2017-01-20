@@ -1,5 +1,9 @@
 package com.framework.utilities;
 
+import com.framework.vendors.http.NetworkResult;
+
+import org.json.JSONObject;
+
 /**
  * package: com.framework.utilities
  * author: MeePwn
@@ -11,6 +15,8 @@ package com.framework.utilities;
 
 public class NetworkUtility {
 
+    public static void sendRequest(String url, JSONObject params, NetworkResult networkResult) {
 
+    }
 
 }

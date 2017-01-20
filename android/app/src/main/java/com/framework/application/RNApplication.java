@@ -7,11 +7,8 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.framework.initialize.DataInitialized;
 import com.framework.modules_and_widgets.register.RegisterPackages;
-import com.framework.utilities.NotificationUtility;
 import com.minimalisticnativecljs.BuildConfig;
-import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,8 +22,9 @@ import java.util.List;
  * desc:
  */
 
-public abstract class BaseApplication extends Application implements ReactApplication, DataInitialized {
+public abstract class RNApplication extends Application implements ReactApplication {
 
+    /* React Native 相关 start */
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
         @Override
@@ -47,6 +45,7 @@ public abstract class BaseApplication extends Application implements ReactApplic
     public ReactNativeHost getReactNativeHost() {
         return mReactNativeHost;
     }
+    /* React Native 相关 end */
 
     @Override
     public void onCreate() {
@@ -55,34 +54,14 @@ public abstract class BaseApplication extends Application implements ReactApplic
         initialize();
     }
 
-    @Override
-    public void initialize() {
+    private void initialize() {
         initReact();
-        initLeakCanary();
-        initManagers();
-        initUtilities();
     }
 
+    /**
+     * 初始化React Native相关
+     */
     private void initReact() {
         SoLoader.init(this, /* native exopackage */ false);
     }
-
-    private void initLeakCanary() {
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
-    }
-
-    private void initManagers() {
-
-    }
-
-    private void initUtilities() {
-        // 初始化 Notification 工具类
-        NotificationUtility.init(this);
-    }
-
 }
