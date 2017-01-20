@@ -11,18 +11,26 @@
             [minimalistic-native-cljs.app.main.modules.callback :refer [test-callback]]
             [minimalistic-native-cljs.app.main.modules.jump-to-native :refer [to-activity]]
             [minimalistic-native-cljs.app.main.modules.polling :refer [start-polling stop-polling]]
+            [minimalistic-native-cljs.app.main.modules.network :refer [add-network-job]]
             [minimalistic-native-cljs.app.main.utilities.data.json-utility :refer [to-string to-json]]
             [minimalistic-native-cljs.app.dataflow.event.events]
             [minimalistic-native-cljs.app.dataflow.sub.subs]))
+
+(defn success-from-network
+  "success from network"
+  [response]
+  (println response))
+
 
 (defn success-callback
   [message action-type]
   ; (start-polling polling-service 60)
   ; (dispatch [:set-greeting "Hello Native World!"])
-  (show-loading)
+  ; (show-loading)
   ; (dismiss-loading)
-  ;  (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
+  ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
+  (add-network-job "http://www.baidu.com" {:name "MeePwn"} success-froAm-network success-from-network)
   )
   ; (println (to-json {:params "jump to native"}))
   ; (show-long-toast action-type)
@@ -38,6 +46,7 @@
   (test-callback message success-callback error-callback))
 
 (defn app-root-view []
+  (println "===========" (to-string (clj->js {:params "MeePwn"})))
   (let [greeting (subscribe [:get-greeting])]
     (fn []
       [view {:style {:flex-direction "column" :margin 40 :align-items "center"}}
