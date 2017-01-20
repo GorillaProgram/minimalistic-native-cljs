@@ -1,6 +1,5 @@
 package com.framework.vendors.http.jobs;
 
-import com.facebook.react.bridge.Callback;
 import com.framework.utilities.NetworkUtility;
 import com.framework.vendors.http.NetworkResult;
 import com.path.android.jobqueue.Job;
@@ -20,16 +19,12 @@ import org.json.JSONObject;
 public class NetworkJob extends Job {
 
     private String mUrl;
-    private JSONObject mParams;
-    private Callback mSuccessCallback;
-    private Callback mFailureCallback;
+    private String mParamsString;
 
-    public NetworkJob(String url, JSONObject params, Callback successCallback, Callback failureCallback) {
+    public NetworkJob(String url, String paramsString) {
         super(new Params(500).requireNetwork().persist().groupBy("network"));
         mUrl = url;
-        mParams = params;
-        mSuccessCallback = successCallback;
-        mFailureCallback = failureCallback;
+        mParamsString = paramsString;
     }
 
     @Override
@@ -39,15 +34,16 @@ public class NetworkJob extends Job {
 
     @Override
     public void onRun() throws Throwable {
-        NetworkUtility.sendRequest(mUrl, mParams, new NetworkResult() {
+        NetworkUtility.sendRequest(mUrl, mParamsString, new NetworkResult() {
             @Override
             public void onSuccess(JSONObject response) {
-                mSuccessCallback.invoke(response);
+//                EventBus.getDefault().post(new MessageEvent());
+                System.out.println("------ response ------" + response);
             }
 
             @Override
             public void onFailure(JSONObject response) {
-                mFailureCallback.invoke(response);
+
             }
         });
     }

@@ -7,9 +7,6 @@ import com.facebook.react.bridge.ReactMethod;
 import com.framework.application.JobApplication;
 import com.framework.vendors.http.jobs.NetworkJob;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * package: com.framework.modules_and_widgets.modules
  * author: MeePwn
@@ -32,12 +29,8 @@ public class NetworkModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void addNetworkJob(String url, String paramsString, Callback successCallback, Callback failureCallback) {
-        try {
-            System.out.println("========= paramsString ==========" + paramsString);
-            JobApplication.getInstance().getJobManager().addJobInBackground(new NetworkJob(url, new JSONObject(paramsString), successCallback, failureCallback));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        System.out.println("========= paramsString ==========" + paramsString);
+        JobApplication.getInstance().getJobManager().addJobInBackground(new NetworkJob(url, paramsString));
     }
 
 }

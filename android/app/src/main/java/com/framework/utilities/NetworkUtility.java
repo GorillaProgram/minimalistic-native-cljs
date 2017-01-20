@@ -2,6 +2,7 @@ package com.framework.utilities;
 
 import com.framework.vendors.http.NetworkResult;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -18,10 +19,15 @@ import java.util.Map;
 
 public class NetworkUtility {
 
-    public static void sendRequest(String url, JSONObject params, NetworkResult networkResult) {
-        Map<String, String> responseMap = new HashMap<>();
-        responseMap.put("url", url);
-        networkResult.onSuccess(new JSONObject(responseMap));
+    public static void sendRequest(String url, String paramsString, NetworkResult networkResult) {
+        try {
+            JSONObject params = new JSONObject(paramsString);
+            Map<String, String> responseMap = new HashMap<>();
+            responseMap.put("url", url);
+            networkResult.onSuccess(new JSONObject(responseMap));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }
