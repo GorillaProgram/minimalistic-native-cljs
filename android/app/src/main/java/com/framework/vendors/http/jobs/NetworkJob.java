@@ -2,9 +2,11 @@ package com.framework.vendors.http.jobs;
 
 import com.framework.utilities.NetworkUtility;
 import com.framework.vendors.http.NetworkResult;
+import com.framework.vendors.http.events.NetworkEvent;
 import com.path.android.jobqueue.Job;
 import com.path.android.jobqueue.Params;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
 
 /**
@@ -37,13 +39,12 @@ public class NetworkJob extends Job {
         NetworkUtility.sendRequest(mUrl, mParamsString, new NetworkResult() {
             @Override
             public void onSuccess(JSONObject response) {
-//                EventBus.getDefault().post(new MessageEvent());
-                System.out.println("------ response ------" + response);
+                EventBus.getDefault().post(new NetworkEvent("success", response));
             }
 
             @Override
             public void onFailure(JSONObject response) {
-
+                EventBus.getDefault().post(new NetworkEvent("failure", response));
             }
         });
     }

@@ -19,7 +19,13 @@
 (defn success-from-network
   "success from network"
   [response]
-  (println response))
+  (println "=== success ===>>> " (js->clj (to-json response))))
+
+(defn failure-from-network
+  "failure from network"
+  [response]
+  (println "=== failure ===>>> " (js->clj (to-json response))))
+
 
 
 (defn success-callback
@@ -30,7 +36,7 @@
   ; (dismiss-loading)
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
-  (add-network-job "http://www.baidu.com" {:name "MeePwn"} success-froAm-network success-from-network)
+  (add-network-job "http://www.baidu.com" {:name "MeePwn"} success-from-network failure-from-network)
   )
   ; (println (to-json {:params "jump to native"}))
   ; (show-long-toast action-type)
