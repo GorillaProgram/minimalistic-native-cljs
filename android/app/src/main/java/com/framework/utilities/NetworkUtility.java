@@ -28,13 +28,9 @@ public class NetworkUtility {
 
     public static void sendRequest(String url, String paramsString, NetworkResult networkResult) {
         try {
-            JSONObject params = new JSONObject(paramsString);
-//            Map responseMap = new HashMap<>();
-//            responseMap.put("url", url);
-//            responseMap.put("data", params);
             JobApplication.getInstance()
                     .getRequestQueue()
-                    .add(new JSONPostRequest(url, params, networkResult::onSuccess, networkResult::onFailure));
+                    .add(new JSONPostRequest(url, new JSONObject(paramsString), networkResult::onSuccess, networkResult::onFailure));
         } catch (JSONException e) {
             e.printStackTrace();
         }

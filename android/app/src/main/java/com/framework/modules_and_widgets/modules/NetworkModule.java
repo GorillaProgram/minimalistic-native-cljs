@@ -47,8 +47,10 @@ public class NetworkModule extends ReactContextBaseJavaModule {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(NetworkEvent event) {
         if (Constant.RESPONSE_SUCCESS.equals(event.getResponseType())) {
+            // TODO 包装成功返回参数
             mSuccessCallback.invoke(event.getResponse().toString());
         } else if (Constant.RESPONSE_FAILURE.equals(event.getResponseType())) {
+            // TODO 包装失败返回参数
             mFailureCallback.invoke(event.getError().toString());
         }
     }
