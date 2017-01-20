@@ -1,5 +1,7 @@
 package com.framework.vendors.http.events;
 
+import com.android.volley.VolleyError;
+
 import org.json.JSONObject;
 
 /**
@@ -13,12 +15,18 @@ import org.json.JSONObject;
 
 public class NetworkEvent {
 
-    private JSONObject response;
     private String responseType;
+    private JSONObject response;
+    private VolleyError error;
 
     public NetworkEvent(String responseType, JSONObject response) {
         this.responseType = responseType;
         this.response = response;
+    }
+
+    public NetworkEvent(String responseType, VolleyError error) {
+        this.responseType = responseType;
+        this.error = error;
     }
 
     public String getResponseType() {
@@ -37,4 +45,11 @@ public class NetworkEvent {
         this.response = response;
     }
 
+    public VolleyError getError() {
+        return error;
+    }
+
+    public void setError(VolleyError error) {
+        this.error = error;
+    }
 }

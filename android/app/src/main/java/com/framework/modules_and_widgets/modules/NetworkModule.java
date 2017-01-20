@@ -49,7 +49,7 @@ public class NetworkModule extends ReactContextBaseJavaModule {
         if (Constant.RESPONSE_SUCCESS.equals(event.getResponseType())) {
             mSuccessCallback.invoke(event.getResponse().toString());
         } else if (Constant.RESPONSE_FAILURE.equals(event.getResponseType())) {
-            mFailureCallback.invoke(event.getResponse().toString());
+            mFailureCallback.invoke(event.getError().toString());
         }
     }
 

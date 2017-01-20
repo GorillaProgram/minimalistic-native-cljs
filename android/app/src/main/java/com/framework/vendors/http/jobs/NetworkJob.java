@@ -3,6 +3,7 @@ package com.framework.vendors.http.jobs;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.android.volley.VolleyError;
 import com.birbit.android.jobqueue.Job;
 import com.birbit.android.jobqueue.Params;
 import com.birbit.android.jobqueue.RetryConstraint;
@@ -48,8 +49,8 @@ public class NetworkJob extends Job {
             }
 
             @Override
-            public void onFailure(JSONObject response) {
-                EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_FAILURE, response));
+            public void onFailure(VolleyError error) {
+                EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_FAILURE, error));
             }
         });
     }
