@@ -52,7 +52,6 @@
   (test-callback message success-callback error-callback))
 
 (defn app-root-view []
-  (println "===========" (to-string (clj->js {:params "MeePwn"})))
   (let [greeting (subscribe [:get-greeting])]
     (fn []
       [view {:style {:flex-direction "column" :margin 40 :align-items "center"}}
