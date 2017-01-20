@@ -32,10 +32,12 @@ public abstract class UIActivity extends ReactActivity implements UIInitialized 
     @Override
     public void initialize() {
 
+        /* 注意!! 此做法会导致Activity内存泄漏 start */
         // 初始化 Dialog 管理类
         DialogManager.init(this);
         // 初始化 ProgressBarDialog 管理类
         ProgressBarDialogManager.init(this);
+        /* 注意!! 此做法会导致Activity内存泄漏 end */
 
     }
 
