@@ -4,6 +4,9 @@ import com.framework.vendors.http.NetworkResult;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * package: com.framework.utilities
  * author: MeePwn
@@ -16,7 +19,9 @@ import org.json.JSONObject;
 public class NetworkUtility {
 
     public static void sendRequest(String url, JSONObject params, NetworkResult networkResult) {
-
+        Map<String, String> responseMap = new HashMap<>();
+        responseMap.put("url", url);
+        networkResult.onSuccess(new JSONObject(responseMap));
     }
 
 }

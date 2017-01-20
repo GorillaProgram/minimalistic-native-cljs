@@ -30,7 +30,7 @@ public class NetworkModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void addJob(String url, JSONObject params, Callback successCallback, Callback failureCallback) {
+    public void addNetworkJob(String url, JSONObject params, Callback successCallback, Callback failureCallback) {
         JobApplication.getInstance().getJobManager().addJobInBackground(new NetworkJob(url, params, successCallback, failureCallback));
     }
 
