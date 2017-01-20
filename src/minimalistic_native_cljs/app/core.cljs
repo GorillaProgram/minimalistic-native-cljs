@@ -19,9 +19,9 @@
   [message action-type]
   ; (start-polling polling-service 60)
   ; (dispatch [:set-greeting "Hello Native World!"])
-  ; (show-loading)
+  (show-loading)
   ; (dismiss-loading)
-   (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
+  ;  (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   )
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (println (to-json {:params "jump to native"}))

@@ -1,6 +1,7 @@
 package com.minimalisticnativecljs.pages;
 
 import com.framework.base.UIActivity;
+import com.framework.manager.ProgressBarDialogManager;
 
 public class MainActivity extends UIActivity {
 
@@ -11,6 +12,14 @@ public class MainActivity extends UIActivity {
     @Override
     protected String getMainComponentName() {
         return "MinimalisticNativeCljs";
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // 初始化 ProgressBarDialog 管理类
+        ProgressBarDialogManager.init(this);
     }
 
     @Override
