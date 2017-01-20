@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.framework.base.UIActivity;
+import com.framework.manager.ProgressBarDialogManager;
 import com.minimalisticnativecljs.R;
 
 /**

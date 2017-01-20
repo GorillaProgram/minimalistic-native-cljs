@@ -1,4 +1,4 @@
-package com.framework.manager;
+package com.framework.utilities;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -17,7 +17,7 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  * desc:
  */
 
-public class NotificationCenterManager {
+public class NotificationUtility {
 
     private static NotificationManager mManager;
     private static Context mContext;

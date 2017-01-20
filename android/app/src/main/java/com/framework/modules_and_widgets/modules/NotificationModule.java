@@ -3,7 +3,7 @@ package com.framework.modules_and_widgets.modules;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.framework.manager.NotificationCenterManager;
+import com.framework.utilities.NotificationUtility;
 import com.minimalisticnativecljs.R;
 
 /**
@@ -32,7 +32,7 @@ public class NotificationModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void showNotification(String title, String message, String activityName) {
         try {
-            NotificationCenterManager.showNotification(R.mipmap.ic_launcher, title, message, Class.forName(activityName));
+            NotificationUtility.showNotification(R.mipmap.ic_launcher, title, message, Class.forName(activityName));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

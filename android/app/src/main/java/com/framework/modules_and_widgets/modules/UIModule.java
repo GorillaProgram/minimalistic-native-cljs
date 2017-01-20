@@ -31,17 +31,17 @@ public class UIModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void showLoadingWithMessage(final String message) {
+    public void showLoadingWithMessage(String message) {
         ProgressBarDialogManager.showProgressBar(message);
     }
 
     @ReactMethod
-    public void showLoadingCouldCancelable(final boolean couldCancelable) {
+    public void showLoadingCouldCancelable(boolean couldCancelable) {
         ProgressBarDialogManager.showProgressBar(couldCancelable);
     }
 
     @ReactMethod
-    public void showLoadingCouldCancelableWithMessage(final boolean couldCancelable, final String message) {
+    public void showLoadingCouldCancelableWithMessage(boolean couldCancelable, String message) {
         ProgressBarDialogManager.showProgressBar(couldCancelable, message);
     }
 

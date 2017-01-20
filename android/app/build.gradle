@@ -142,6 +142,7 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.path:android-priority-jobqueue:1.1.2'
     compile 'com.orhanobut:logger:1.15'
+//    compile 'com.squareup:tape:1.2.3'
     compile 'com.squareup.phrase:phrase:1.1.0'
     compile 'com.bigkoo:pickerview:2.1.1'
 

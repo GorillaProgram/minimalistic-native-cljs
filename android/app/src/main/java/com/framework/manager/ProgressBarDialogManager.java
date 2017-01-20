@@ -36,9 +36,8 @@ public class ProgressBarDialogManager {
     /**
      * 显示 ProgressBar (带文字)
      */
-    public static void showProgressBar(final String message) {
-        UiThreadUtil.runOnUiThread(() ->
-                mProgressBarDialog
+    public static void showProgressBar(String message) {
+        UiThreadUtil.runOnUiThread(() -> mProgressBarDialog
                 .setMessage(message)
                 .show());
     }
@@ -46,9 +45,8 @@ public class ProgressBarDialogManager {
     /**
      * 显示 ProgressBar (点击不会消失)
      */
-    public static void showProgressBar(final boolean couldCancelable) {
-        UiThreadUtil.runOnUiThread(() ->
-                mProgressBarDialog
+    public static void showProgressBar(boolean couldCancelable) {
+        UiThreadUtil.runOnUiThread(() -> mProgressBarDialog
                 .setCouldCancelable(couldCancelable)
                 .show());
     }
@@ -56,9 +54,8 @@ public class ProgressBarDialogManager {
     /**
      * 显示 ProgressBar (带文字, 点击不会消失)
      */
-    public static void showProgressBar(final boolean couldCancelable, final String message) {
-        UiThreadUtil.runOnUiThread(() ->
-                mProgressBarDialog
+    public static void showProgressBar(boolean couldCancelable, String message) {
+        UiThreadUtil.runOnUiThread(() -> mProgressBarDialog
                 .setCouldCancelable(couldCancelable)
                 .setMessage(message)
                 .show());

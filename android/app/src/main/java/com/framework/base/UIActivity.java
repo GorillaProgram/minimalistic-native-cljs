@@ -6,7 +6,6 @@ import com.facebook.react.ReactActivity;
 import com.framework.initialize.UIInitialized;
 import com.framework.manager.DialogManager;
 import com.framework.manager.ProgressBarDialogManager;
-import com.framework.manager.NotificationCenterManager;
 
 /**
  * package: com.framework.base
@@ -33,8 +32,6 @@ public abstract class UIActivity extends ReactActivity implements UIInitialized 
     @Override
     public void initialize() {
 
-        // 初始化 Notification 管理类
-        NotificationCenterManager.init(this);
         // 初始化 Dialog 管理类
         DialogManager.init(this);
         // 初始化 ProgressBarDialog 管理类

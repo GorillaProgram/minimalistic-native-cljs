@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import com.framework.pages.activity.MessageActivity;
-import com.framework.manager.NotificationCenterManager;
+import com.framework.utilities.NotificationUtility;
 import com.minimalisticnativecljs.R;
 
 /**
@@ -41,7 +41,7 @@ public class PollingService extends Service {
     }
 
     private void showNotification(String title, String message) {
-        NotificationCenterManager.showNotification(R.mipmap.ic_launcher, title, message, MessageActivity.class);
+        NotificationUtility.showNotification(R.mipmap.ic_launcher, title, message, MessageActivity.class);
     }
 
     /**
