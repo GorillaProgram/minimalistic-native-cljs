@@ -1,11 +1,15 @@
 package com.framework.vendors.http.jobs;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import com.birbit.android.jobqueue.Job;
+import com.birbit.android.jobqueue.Params;
+import com.birbit.android.jobqueue.RetryConstraint;
 import com.framework.constant.Constant;
 import com.framework.utilities.NetworkUtility;
-import com.framework.vendors.http.NetworkResult;
+import com.framework.vendors.http.network.NetworkResult;
 import com.framework.vendors.http.events.NetworkEvent;
-import com.path.android.jobqueue.Job;
-import com.path.android.jobqueue.Params;
 
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
@@ -51,13 +55,17 @@ public class NetworkJob extends Job {
     }
 
     @Override
-    protected void onCancel() {
+    protected void onCancel(int cancelReason, @Nullable Throwable throwable) {
 
     }
 
     @Override
-    protected boolean shouldReRunOnThrowable(Throwable throwable) {
-        return false;
+    protected RetryConstraint shouldReRunOnThrowable(@NonNull Throwable throwable, int runCount, int maxRunCount) {
+        // An error occurred in onRun.
+        // Return value determines whether this job should retry or cancel. You can further
+        // specify a backoff strategy or change the job's priority. You can also apply the
+        // delay to the whole group to preserve jobs' running order.
+        return RetryConstraint.createExponentialBackoff(runCount, 1000);
     }
 
 }

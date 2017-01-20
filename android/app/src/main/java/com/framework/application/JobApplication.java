@@ -2,11 +2,14 @@ package com.framework.application;
 
 import android.util.Log;
 
+import com.android.volley.RequestQueue;
+import com.birbit.android.jobqueue.JobManager;
+import com.birbit.android.jobqueue.config.Configuration;
+import com.birbit.android.jobqueue.log.CustomLogger;
 import com.framework.initialize.DataInitialized;
+import com.framework.utilities.NetworkUtility;
 import com.framework.utilities.NotificationUtility;
-import com.path.android.jobqueue.JobManager;
-import com.path.android.jobqueue.config.Configuration;
-import com.path.android.jobqueue.log.CustomLogger;
+import com.framework.vendors.http.Volley;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -63,14 +66,33 @@ public abstract class JobApplication extends RNApplication implements DataInitia
                     public void e(String text, Object... args) {
                         Log.e(TAG, String.format(text, args));
                     }
+
+                    @Override
+                    public void v(String text, Object... args) {
+                        Log.v(TAG, String.format(text, args));
+                    }
                 })
                 .minConsumerCount(1)//always keep at least one consumer alive
                 .maxConsumerCount(3)//up to 3 consumers at a time
                 .loadFactor(3)//3 jobs per consumer
                 .consumerKeepAlive(120);//wait 2 minute
-        return new JobManager(this, builder.build());
+        return new JobManager(builder.build());
     }
     /* Android Priority Job Queue 相关 end */
+
+    /* Request Queue 相关 start */
+    private volatile RequestQueue requestQueue;
+    public synchronized RequestQueue getRequestQueue() {
+        if (null == requestQueue) {
+            synchronized (RequestQueue.class) {
+                if (null == requestQueue) {
+                    requestQueue = Volley.newRequestQueue(this);
+                }
+            }
+        }
+        return requestQueue;
+    }
+    /* Request Queue 相关 end */
 
     @Override
     public void onCreate() {
@@ -120,6 +142,8 @@ public abstract class JobApplication extends RNApplication implements DataInitia
     private void initUtilities() {
         // 初始化 Notification 工具类
         NotificationUtility.init(this);
+        // 初始化 Network 工具类
+        NetworkUtility.init(this);
     }
 
 }

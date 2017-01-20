@@ -1,4 +1,6 @@
-package com.framework.vendors.http;
+package com.framework.vendors.http.network;
+
+import com.android.volley.VolleyError;
 
 import org.json.JSONObject;
 
@@ -14,6 +16,6 @@ import org.json.JSONObject;
 public interface NetworkResult {
 
     public void onSuccess(JSONObject response);
-    public void onFailure(JSONObject response);
+    public void onFailure(VolleyError error);
 
 }
