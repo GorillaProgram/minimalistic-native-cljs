@@ -29,9 +29,11 @@ public class NetworkUtility {
 
     public static void sendRequest(String url, String paramsString, NetworkResult networkResult) {
         try {
+            System.out.println(Phrase.from("=== {url} == {params} ====>>>>> ").put("url", url).put("params", paramsString).format());
+            JSONObject params = new JSONObject(paramsString);
             JobApplication.getInstance()
                     .getRequestQueue()
-                    .add(new JSONRequest(url, "".equals(paramsString) ? null : new JSONObject(paramsString),
+                    .add(new JSONRequest(url, "{}".equals(params.toString()) ? null : params,
                             response -> {
                                 System.out.println(Phrase.from("=== {url} == {response} ====>>>>> ").put("url", url).put("response", response.toString()).format());
                                 networkResult.onSuccess(response);
