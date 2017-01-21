@@ -5,6 +5,7 @@ import android.content.Context;
 import com.framework.application.JobApplication;
 import com.framework.vendors.http.network.NetworkResult;
 import com.framework.vendors.http.request.JSONRequest;
+import com.framework.vendors.log.JLog;
 import com.squareup.phrase.Phrase;
 
 import org.json.JSONException;
@@ -29,17 +30,18 @@ public class NetworkUtility {
 
     public static void sendRequest(String url, String paramsString, NetworkResult networkResult) {
         try {
-            System.out.println(Phrase.from("=== {url} == {params} ====>>>>> ").put("url", url).put("params", paramsString).format());
+            JLog.d(Phrase.from("=== {url} == {params} ====>>>>> ").put("url", url).put("params", paramsString).format().toString());
             JSONObject params = new JSONObject(paramsString);
             JobApplication.getInstance()
                     .getRequestQueue()
                     .add(new JSONRequest(url, "{}".equals(params.toString()) ? null : params,
                             response -> {
-                                System.out.println(Phrase.from("=== {url} == {response} ====>>>>> ").put("url", url).put("response", response.toString()).format());
+                                JLog.d(Phrase.from("=== {url} ====>>>>> ").put("url", url).format().toString());
+                                JLog.json(Phrase.from("{response}").put("response", response.toString()).format().toString());
                                 networkResult.onSuccess(response);
                             },
                             error -> {
-                                System.out.println(Phrase.from("=== {url} == {error} ====>>>>> ").put("url", url).put("error", error.toString()).format());
+                                JLog.d(Phrase.from("=== {url} == {error} ====>>>>> ").put("url", url).put("error", error.toString()).format().toString());
                                 networkResult.onFailure(error);
                             }));
         } catch (JSONException e) {

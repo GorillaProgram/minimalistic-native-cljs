@@ -6,6 +6,7 @@ import com.android.volley.RequestQueue;
 import com.birbit.android.jobqueue.JobManager;
 import com.birbit.android.jobqueue.config.Configuration;
 import com.birbit.android.jobqueue.log.CustomLogger;
+import com.framework.constant.Constant;
 import com.framework.initialize.DataInitialized;
 import com.framework.utilities.NetworkUtility;
 import com.framework.utilities.NotificationUtility;
@@ -45,7 +46,6 @@ public abstract class JobApplication extends RNApplication implements DataInitia
     private JobManager configureJobManager() {
         Configuration.Builder builder = new Configuration.Builder(this)
                 .customLogger(new CustomLogger() {
-                    private static final String TAG = "MeePwn JOB";
 
                     @Override
                     public boolean isDebugEnabled() {
@@ -54,22 +54,22 @@ public abstract class JobApplication extends RNApplication implements DataInitia
 
                     @Override
                     public void d(String text, Object... args) {
-                        Log.d(TAG, String.format(text, args));
+                        Log.d(Constant.LOG_TAG_JOB_QUEUE, String.format(text, args));
                     }
 
                     @Override
                     public void e(Throwable t, String text, Object... args) {
-                        Log.e(TAG, String.format(text, args), t);
+                        Log.e(Constant.LOG_TAG_JOB_QUEUE, String.format(text, args), t);
                     }
 
                     @Override
                     public void e(String text, Object... args) {
-                        Log.e(TAG, String.format(text, args));
+                        Log.e(Constant.LOG_TAG_JOB_QUEUE, String.format(text, args));
                     }
 
                     @Override
                     public void v(String text, Object... args) {
-                        Log.v(TAG, String.format(text, args));
+                        Log.v(Constant.LOG_TAG_JOB_QUEUE, String.format(text, args));
                     }
                 })
                 .minConsumerCount(1)//always keep at least one consumer alive
