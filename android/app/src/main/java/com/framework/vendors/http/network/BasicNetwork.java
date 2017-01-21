@@ -15,7 +15,6 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.ByteArrayPool;
-import com.framework.utilities.DateUtility;
 
 import org.apache.http.conn.ConnectTimeoutException;
 
@@ -147,7 +146,8 @@ public class BasicNetwork implements Network {
 
             if(entry.serverDate > 0L) {
                 Date refTime = new Date(entry.serverDate);
-                headers.put("If-Modified-Since", DateUtility.formatDateWithFormat(refTime, "EEE, dd MMM yyyy HH:mm:ss zzz"));
+                headers.put("If-Modified-Since", refTime.toString());
+//                headers.put("If-Modified-Since", DateUtility.formatDateWithFormat(refTime, "EEE, dd MMM yyyy HH:mm:ss zzz"));
             }
 
         }

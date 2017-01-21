@@ -36,7 +36,7 @@
   ; (dismiss-loading)
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
-  (add-network-job "http://www.baidu.com" {:name "MeePwn"} success-from-network failure-from-network)
+  (add-network-job "https://api.github.com" "" success-from-network failure-from-network)
   )
   ; (println (to-json {:params "jump to native"}))
   ; (show-long-toast action-type)

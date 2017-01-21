@@ -4,7 +4,8 @@ import android.content.Context;
 
 import com.framework.application.JobApplication;
 import com.framework.vendors.http.network.NetworkResult;
-import com.framework.vendors.http.request.JSONPostRequest;
+import com.framework.vendors.http.request.JSONRequest;
+import com.squareup.phrase.Phrase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +31,15 @@ public class NetworkUtility {
         try {
             JobApplication.getInstance()
                     .getRequestQueue()
-                    .add(new JSONPostRequest(url, new JSONObject(paramsString), networkResult::onSuccess, networkResult::onFailure));
+                    .add(new JSONRequest(url, "".equals(paramsString) ? null : new JSONObject(paramsString),
+                            response -> {
+                                System.out.println(Phrase.from("=== {url} == {response} ====>>>>> ").put("url", url).put("response", response.toString()).format());
+                                networkResult.onSuccess(response);
+                            },
+                            error -> {
+                                System.out.println(Phrase.from("=== {url} == {error} ====>>>>> ").put("url", url).put("error", error.toString()).format());
+                                networkResult.onFailure(error);
+                            }));
         } catch (JSONException e) {
             e.printStackTrace();
         }
