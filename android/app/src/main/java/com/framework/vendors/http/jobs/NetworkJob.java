@@ -3,17 +3,14 @@ package com.framework.vendors.http.jobs;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.android.volley.VolleyError;
 import com.birbit.android.jobqueue.Job;
 import com.birbit.android.jobqueue.Params;
 import com.birbit.android.jobqueue.RetryConstraint;
 import com.framework.constant.Constant;
 import com.framework.utilities.NetworkUtility;
-import com.framework.vendors.http.network.NetworkResult;
 import com.framework.vendors.http.events.NetworkEvent;
 
 import org.greenrobot.eventbus.EventBus;
-import org.json.JSONObject;
 
 /**
  * package: com.framework.vendors.http.jobs
@@ -42,16 +39,12 @@ public class NetworkJob extends Job {
 
     @Override
     public void onRun() throws Throwable {
-        NetworkUtility.sendRequest(mUrl, mParamsString, new NetworkResult() {
-            @Override
-            public void onSuccess(JSONObject response) {
-                EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_SUCCESS, response));
-            }
-
-            @Override
-            public void onFailure(VolleyError error) {
-                EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_FAILURE, error));
-            }
+        NetworkUtility.sendRequest(mUrl, mParamsString, response -> {
+            // TODO 组装成功返回数据
+            EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_SUCCESS, response));
+        }, error -> {
+            // TODO 组装失败返回数据
+            EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_FAILURE, error));
         });
     }
 

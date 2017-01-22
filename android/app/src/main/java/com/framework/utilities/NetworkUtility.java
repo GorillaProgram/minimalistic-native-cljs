@@ -3,7 +3,8 @@ package com.framework.utilities;
 import android.content.Context;
 
 import com.framework.application.JobApplication;
-import com.framework.vendors.http.network.NetworkResult;
+import com.framework.vendors.http.network.NetworkFailureResult;
+import com.framework.vendors.http.network.NetworkSuccessResult;
 import com.framework.vendors.http.request.JSONRequest;
 import com.framework.vendors.log.JLog;
 import com.squareup.phrase.Phrase;
@@ -28,7 +29,7 @@ public class NetworkUtility {
         mContext = context;
     }
 
-    public static void sendRequest(String url, String paramsString, NetworkResult networkResult) {
+    public static void sendRequest(String url, String paramsString, NetworkSuccessResult successResult, NetworkFailureResult failureResult) {
         try {
             JLog.d(Phrase.from("=== {url} == {params} ====>>>>> ").put("url", url).put("params", paramsString).format().toString());
             JSONObject params = new JSONObject(paramsString);
@@ -38,11 +39,11 @@ public class NetworkUtility {
                             response -> {
                                 JLog.d(Phrase.from("=== {url} ====>>>>> ").put("url", url).format().toString());
                                 JLog.json(Phrase.from("{response}").put("response", response.toString()).format().toString());
-                                networkResult.onSuccess(response);
+                                successResult.onSuccess(response);
                             },
                             error -> {
                                 JLog.d(Phrase.from("=== {url} == {error} ====>>>>> ").put("url", url).put("error", error.toString()).format().toString());
-                                networkResult.onFailure(error);
+                                failureResult.onFailure(error);
                             }));
         } catch (JSONException e) {
             e.printStackTrace();
