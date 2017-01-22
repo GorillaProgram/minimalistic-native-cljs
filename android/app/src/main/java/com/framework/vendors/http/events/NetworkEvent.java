@@ -2,8 +2,6 @@ package com.framework.vendors.http.events;
 
 import com.android.volley.VolleyError;
 
-import org.json.JSONObject;
-
 /**
  * package: com.framework.vendors.http.events
  * author: MeePwn
@@ -15,18 +13,29 @@ import org.json.JSONObject;
 
 public class NetworkEvent {
 
+    private String url;
     private String responseType;
-    private JSONObject response;
+    private String response;
     private VolleyError error;
 
-    public NetworkEvent(String responseType, JSONObject response) {
+    public NetworkEvent(String url, String responseType, String response) {
+        this.url = url;
         this.responseType = responseType;
         this.response = response;
     }
 
-    public NetworkEvent(String responseType, VolleyError error) {
+    public NetworkEvent(String url, String responseType, VolleyError error) {
+        this.url = url;
         this.responseType = responseType;
         this.error = error;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getResponseType() {
@@ -37,11 +46,11 @@ public class NetworkEvent {
         this.responseType = responseType;
     }
 
-    public JSONObject getResponse() {
+    public String getResponse() {
         return response;
     }
 
-    public void setResponse(JSONObject response) {
+    public void setResponse(String response) {
         this.response = response;
     }
 

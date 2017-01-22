@@ -11,6 +11,7 @@ import com.framework.utilities.NetworkUtility;
 import com.framework.vendors.http.events.NetworkEvent;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONObject;
 
 /**
  * package: com.framework.vendors.http.jobs
@@ -24,12 +25,12 @@ import org.greenrobot.eventbus.EventBus;
 public class NetworkJob extends Job {
 
     private String mUrl;
-    private String mParamsString;
+    private JSONObject mParams;
 
-    public NetworkJob(String url, String paramsString) {
+    public NetworkJob(String url, JSONObject params) {
         super(new Params(500).requireNetwork().persist().groupBy("network"));
         mUrl = url;
-        mParamsString = paramsString;
+        mParams = params;
     }
 
     @Override
@@ -39,12 +40,10 @@ public class NetworkJob extends Job {
 
     @Override
     public void onRun() throws Throwable {
-        NetworkUtility.sendRequest(mUrl, mParamsString, response -> {
-            // TODO 组装成功返回数据
-            EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_SUCCESS, response));
+        NetworkUtility.sendRequest(mUrl, mParams, response -> {
+            EventBus.getDefault().post(new NetworkEvent(mUrl, Constant.RESPONSE_SUCCESS, response));
         }, error -> {
-            // TODO 组装失败返回数据
-            EventBus.getDefault().post(new NetworkEvent(Constant.RESPONSE_FAILURE, error));
+            EventBus.getDefault().post(new NetworkEvent(mUrl, Constant.RESPONSE_FAILURE, error));
         });
     }
 

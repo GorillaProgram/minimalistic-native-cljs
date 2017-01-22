@@ -1,6 +1,6 @@
 package com.framework.vendors.http.network;
 
-import org.json.JSONObject;
+import java.io.Serializable;
 
 /**
  * package: com.framework.vendors.http
@@ -11,8 +11,8 @@ import org.json.JSONObject;
  * desc:
  */
 
-public interface NetworkSuccessResult {
+public interface NetworkSuccessResult extends Serializable {
 
-    public void onSuccess(JSONObject response);
+    public void onSuccess(String responseString);
 
 }

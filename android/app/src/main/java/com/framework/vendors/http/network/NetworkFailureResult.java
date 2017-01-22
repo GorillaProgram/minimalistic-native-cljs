@@ -2,6 +2,8 @@ package com.framework.vendors.http.network;
 
 import com.android.volley.VolleyError;
 
+import java.io.Serializable;
+
 /**
  * package: com.framework.vendors.http.network
  * author: MeePwn
@@ -11,7 +13,7 @@ import com.android.volley.VolleyError;
  * desc:
  */
 
-public interface NetworkFailureResult {
+public interface NetworkFailureResult extends Serializable {
 
     public void onFailure(VolleyError error);
 
