@@ -26,6 +26,15 @@
   [response]
   (println "=== failure ===>>> " response))
 
+(defn success-show-info
+  "doc-string"
+  [response]
+  (println "--- success show info --->>> " response))
+
+(defn failure-show-info
+  "doc-string"
+  [response]
+  (println "--- failure show info --->>> " response))
 
 
 (defn success-callback
@@ -37,6 +46,8 @@
   ; (to-activity "com.framework.pages.activity.TestActivity" (to-string {:params "jump to native"}))
   ; (show-notification "new title" "new message" "com.framework.pages.activity.MessageActivity")
   ; (add-network-job "https://api.github.com" {} success-from-network failure-from-network)
+  (add-network-job "http://10.240.90.214:7001/padServer/ImageController/imageTrans" {} success-from-network failure-from-network)
+  (add-network-job "http://10.240.90.214:7001/padServer/HomePageController/showIndexInfo" {} success-show-info failure-show-info)
   )
   ; (println (to-json {:params "jump to native"}))
   ; (show-long-toast action-type)
