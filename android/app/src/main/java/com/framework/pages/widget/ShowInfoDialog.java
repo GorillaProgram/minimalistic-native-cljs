@@ -95,44 +95,37 @@ public class ShowInfoDialog extends Dialog {
          * @param positiveButtonText
          * @return
          */
-        public ShowInfoDialog.Builder setPositiveButton(int positiveButtonText,
-                                                           DialogInterface.OnClickListener listener) {
-            this.positiveButtonText = (String) context
-                    .getText(positiveButtonText);
+        public ShowInfoDialog.Builder setPositiveButton(int positiveButtonText, DialogInterface.OnClickListener listener) {
+            this.positiveButtonText = (String) context.getText(positiveButtonText);
             this.positiveButtonClickListener = listener;
             return this;
         }
 
-        public ShowInfoDialog.Builder setPositiveButton(String positiveButtonText,
-                                                           DialogInterface.OnClickListener listener) {
+        public ShowInfoDialog.Builder setPositiveButton(String positiveButtonText, DialogInterface.OnClickListener listener) {
             this.positiveButtonText = positiveButtonText;
             this.positiveButtonClickListener = listener;
             return this;
         }
 
-        public ShowInfoDialog.Builder setNegativeButton(int negativeButtonText,
-                                                           DialogInterface.OnClickListener listener) {
+        public ShowInfoDialog.Builder setNegativeButton(int negativeButtonText, DialogInterface.OnClickListener listener) {
             this.negativeButtonText = (String) context
                     .getText(negativeButtonText);
             this.negativeButtonClickListener = listener;
             return this;
         }
 
-        public ShowInfoDialog.Builder setNegativeButton(String negativeButtonText,
-                                                           DialogInterface.OnClickListener listener) {
+        public ShowInfoDialog.Builder setNegativeButton(String negativeButtonText, DialogInterface.OnClickListener listener) {
             this.negativeButtonText = negativeButtonText;
             this.negativeButtonClickListener = listener;
             return this;
         }
 
         public ShowInfoDialog create() {
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             // instantiate the dialog with the custom Theme
             final ShowInfoDialog dialog = new ShowInfoDialog(context, R.style.Dialog);
             View layout = inflater.inflate(R.layout.dialog_normal_layout, null);
-            dialog.addContentView(layout, new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            dialog.addContentView(layout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             // set the dialog title
             ((TextView) layout.findViewById(R.id.title)).setText(title);
             // set the confirm button
@@ -140,12 +133,9 @@ public class ShowInfoDialog extends Dialog {
                 ((Button) layout.findViewById(R.id.positiveButton))
                         .setText(positiveButtonText);
                 if (positiveButtonClickListener != null) {
-                    ((Button) layout.findViewById(R.id.positiveButton))
-                            .setOnClickListener(new View.OnClickListener() {
-                                public void onClick(View v) {
-                                    positiveButtonClickListener.onClick(dialog,
-                                            DialogInterface.BUTTON_POSITIVE);
-                                }
+                    layout.findViewById(R.id.positiveButton)
+                            .setOnClickListener(v -> {
+                                positiveButtonClickListener.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
                             });
                 }
             } else {
@@ -155,16 +145,12 @@ public class ShowInfoDialog extends Dialog {
             }
             // set the cancel button
             if (negativeButtonText != null) {
-                ((Button) layout.findViewById(R.id.negativeButton))
-                        .setText(negativeButtonText);
+                ((Button) layout.findViewById(R.id.negativeButton)).setText(negativeButtonText);
                 if (negativeButtonClickListener != null) {
-                    ((Button) layout.findViewById(R.id.negativeButton))
-                            .setOnClickListener(new View.OnClickListener() {
-                                public void onClick(View v) {
-                                    negativeButtonClickListener.onClick(dialog,
-                                            DialogInterface.BUTTON_NEGATIVE);
-                                }
-                            });
+                    layout.findViewById(R.id.negativeButton)
+                        .setOnClickListener(v -> {
+                            negativeButtonClickListener.onClick(dialog, DialogInterface.BUTTON_NEGATIVE);
+                        });
                 }
             } else {
                 // if no confirm button just set the visibility to GONE
@@ -177,10 +163,8 @@ public class ShowInfoDialog extends Dialog {
             } else if (contentView != null) {
                 // if no message set
                 // add the contentView to the dialog body
-                ((LinearLayout) layout.findViewById(R.id.content))
-                        .removeAllViews();
-                ((LinearLayout) layout.findViewById(R.id.content))
-                        .addView(contentView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                ((LinearLayout) layout.findViewById(R.id.content)).removeAllViews();
+                ((LinearLayout) layout.findViewById(R.id.content)).addView(contentView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             }
             dialog.setContentView(layout);
             return dialog;
