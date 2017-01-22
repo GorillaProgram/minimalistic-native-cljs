@@ -9,6 +9,7 @@ import com.framework.vendors.http.request.JSONRequest;
 import com.framework.vendors.log.JLog;
 import com.squareup.phrase.Phrase;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -28,22 +29,27 @@ public class NetworkUtility {
         mContext = context;
     }
 
-    public static void sendRequest(String url, JSONObject params, NetworkSuccessResult successResult, NetworkFailureResult failureResult) {
-        JLog.d(Phrase.from("=== {url} == {params} ====>>>>> ").put("url", url).put("params", params.toString()).format().toString());
-        JobApplication.getInstance()
-                .getRequestQueue()
-                .add(new JSONRequest(url, "{}".equals(params.toString()) ? null : params,
-                        response -> {
-                            // TODO 组装成功返回数据
-                            JLog.d(Phrase.from("=== {url} ====>>>>> ").put("url", url).format().toString());
-                            JLog.json(Phrase.from("{response}").put("response", response.toString()).format().toString());
-                            successResult.onSuccess(response.toString());
-                        },
-                        error -> {
-                            // TODO 组装失败返回数据
-                            JLog.d(Phrase.from("=== {url} == {error} ====>>>>> ").put("url", url).put("error", error.toString()).format().toString());
-                            failureResult.onFailure(error);
-                        }));
+    public static void sendRequest(String url, String paramsString, NetworkSuccessResult successResult, NetworkFailureResult failureResult) {
+        try {
+            JSONObject params = new JSONObject(paramsString);
+            JLog.d(Phrase.from("=== {url} == {params} ====>>>>> ").put("url", url).put("params", params.toString()).format().toString());
+            JobApplication.getInstance()
+                    .getRequestQueue()
+                    .add(new JSONRequest(url, "{}".equals(params.toString()) ? null : params,
+                            response -> {
+                                // TODO 组装成功返回数据
+                                JLog.d(Phrase.from("=== {url} ====>>>>> ").put("url", url).format().toString());
+                                JLog.json(Phrase.from("{response}").put("response", response.toString()).format().toString());
+                                successResult.onSuccess(response.toString());
+                            },
+                            error -> {
+                                // TODO 组装失败返回数据
+                                JLog.d(Phrase.from("=== {url} == {error} ====>>>>> ").put("url", url).put("error", error.toString()).format().toString());
+                                failureResult.onFailure(error);
+                            }));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }

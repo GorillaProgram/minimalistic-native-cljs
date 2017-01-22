@@ -12,8 +12,6 @@ import com.framework.vendors.http.jobs.NetworkJob;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,14 +46,9 @@ public class NetworkModule extends ReactContextBaseJavaModule {
     public void addNetworkJob(String url, String paramsString, final Callback successCallback, final Callback failureCallback) {
         mSuccessCallbackMap.put(url, successCallback);
         mFailureCallbackMap.put(url, failureCallback);
-        try {
-            JSONObject params = new JSONObject(paramsString);
-            JobApplication.getInstance()
-                    .getJobManager()
-                    .addJobInBackground(new NetworkJob(url, params));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        JobApplication.getInstance()
+                .getJobManager()
+                .addJobInBackground(new NetworkJob(url, paramsString));
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
