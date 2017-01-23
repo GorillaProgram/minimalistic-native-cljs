@@ -63,7 +63,7 @@ public class BasicNetwork implements Network {
     public NetworkResponse performRequest(Request<?> request) throws VolleyError {
         long requestStart = SystemClock.elapsedRealtime();
 
-        while(true) {
+        while (true) {
             Response okHttpResponse = null;
             Object responseContents = null;
             HashMap responseHeaders = new HashMap();
@@ -76,14 +76,14 @@ public class BasicNetwork implements Network {
 
                 int networkResponse = okHttpResponse.code();
                 Map responseHeadersFromOkHttp = convertHeaders(okHttpResponse.headers());
-                if(networkResponse == 304) {
+                if (networkResponse == 304) {
                     return new NetworkResponse(304, request.getCacheEntry().data, responseHeadersFromOkHttp, true);
                 }
 
                 byte[] responseContentsFromOkHttp = okHttpResponse.body().bytes();
                 long requestLifetime = SystemClock.elapsedRealtime() - requestStart;
                 this.logSlowRequests(requestLifetime, request, responseContentsFromOkHttp, networkResponse);
-                if(networkResponse != 200 && networkResponse != 204) {
+                if (networkResponse != 200 && networkResponse != 204) {
                     throw new IOException();
                 }
 
@@ -97,18 +97,18 @@ public class BasicNetwork implements Network {
                 throw new RuntimeException("Bad URL " + request.getUrl(), var14);
             } catch (IOException var15) {
                 NetworkResponse networkResponse = null;
-                if(okHttpResponse == null) {
+                if (okHttpResponse == null) {
                     throw new NoConnectionError(var15);
                 }
 
                 int statusCode = okHttpResponse.code();
                 VolleyLog.e("Unexpected response code %d for %s", new Object[]{Integer.valueOf(statusCode), request.getUrl()});
-                if(responseContents == null) {
+                if (responseContents == null) {
                     throw new NetworkError(networkResponse);
                 }
 
-                networkResponse = new NetworkResponse(statusCode, (byte[])responseContents, responseHeaders, false);
-                if(statusCode != 401 && statusCode != 403) {
+                networkResponse = new NetworkResponse(statusCode, (byte[]) responseContents, responseHeaders, false);
+                if (statusCode != 401 && statusCode != 403) {
                     throw new ServerError(networkResponse);
                 }
 
@@ -117,9 +117,9 @@ public class BasicNetwork implements Network {
         }
     }
 
-    private void logSlowRequests(long requestLifetime, Request<?> request, byte[] responseContents, int  status) {
-        if(DEBUG || requestLifetime > (long)SLOW_REQUEST_THRESHOLD_MS) {
-            VolleyLog.d("HTTP response for request=<%s> [lifetime=%d], [size=%s], [rc=%d], [retryCount=%s]", new Object[]{request, Long.valueOf(requestLifetime), responseContents != null?Integer.valueOf(responseContents.length):"null", Integer.valueOf(status), Integer.valueOf(request.getRetryPolicy().getCurrentRetryCount())});
+    private void logSlowRequests(long requestLifetime, Request<?> request, byte[] responseContents, int status) {
+        if (DEBUG || requestLifetime > (long) SLOW_REQUEST_THRESHOLD_MS) {
+            VolleyLog.d("HTTP response for request=<%s> [lifetime=%d], [size=%s], [rc=%d], [retryCount=%s]", new Object[]{request, Long.valueOf(requestLifetime), responseContents != null ? Integer.valueOf(responseContents.length) : "null", Integer.valueOf(status), Integer.valueOf(request.getRetryPolicy().getCurrentRetryCount())});
         }
 
     }
@@ -139,12 +139,12 @@ public class BasicNetwork implements Network {
     }
 
     private void addCacheHeaders(Map<String, String> headers, Cache.Entry entry) {
-        if(entry != null) {
-            if(entry.etag != null) {
+        if (entry != null) {
+            if (entry.etag != null) {
                 headers.put("If-None-Match", entry.etag);
             }
 
-            if(entry.serverDate > 0L) {
+            if (entry.serverDate > 0L) {
                 Date refTime = new Date(entry.serverDate);
                 headers.put("If-Modified-Since", refTime.toString());
 //                headers.put("If-Modified-Since", DateUtility.formatDateWithFormat(refTime, "EEE, dd MMM yyyy HH:mm:ss zzz"));
@@ -156,7 +156,7 @@ public class BasicNetwork implements Network {
     private static Map<String, String> convertHeaders(Headers headers) {
         HashMap result = new HashMap();
 
-        for(int i = 0; i < headers.size(); ++i) {
+        for (int i = 0; i < headers.size(); ++i) {
             result.put(headers.name(i), headers.value(i));
         }
 

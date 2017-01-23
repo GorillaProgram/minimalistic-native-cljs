@@ -24,12 +24,13 @@ import okhttp3.Response;
 public class OkHttpStackImpl implements OkHttpStack {
 
     private final OkHttpClient mClient;//提供的可以克隆的OkHttpClient，例如HTTPS请求
+
     public OkHttpStackImpl(OkHttpClient client) {
         this.mClient = client;
     }
 
     @SuppressWarnings("deprecation")
-    private  void setConnectionParametersForRequest (okhttp3.Request.Builder builder, Request<?> request)
+    private void setConnectionParametersForRequest(okhttp3.Request.Builder builder, Request<?> request)
             throws IOException, AuthFailureError {
         switch (request.getMethod()) {
             case Request.Method.DEPRECATED_GET_OR_POST:
@@ -79,11 +80,12 @@ public class OkHttpStackImpl implements OkHttpStack {
 
     /**
      * 如果需要对OkHttp的请求体进行修改或者添加一些内容可以在这个地方修改
+     *
      * @param request
      * @return
      * @throws AuthFailureError
      */
-    protected  RequestBody createRequestBody(Request request) throws AuthFailureError {
+    protected RequestBody createRequestBody(Request request) throws AuthFailureError {
         final byte[] body = request.getBody();
         if (body == null) return null;
 
