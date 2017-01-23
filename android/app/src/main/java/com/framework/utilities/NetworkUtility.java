@@ -32,19 +32,19 @@ public class NetworkUtility {
     public static void sendRequest(String url, String paramsString, NetworkSuccessResult successResult, NetworkFailureResult failureResult) {
         try {
             JSONObject params = new JSONObject(paramsString);
-            JLog.d(Phrase.from("=== {url} == {params} ====>>>>> ").put("url", url).put("params", params.toString()).format().toString());
+            JLog.d(Phrase.from("=== {url} ====>>>>> {params}").put("url", url).put("params", params.toString()).format().toString());
             JobApplication.getInstance()
                     .getRequestQueue()
                     .add(new JSONRequest(url, "{}".equals(params.toString()) ? null : params,
                             response -> {
                                 // TODO 组装成功返回数据
-                                JLog.d(Phrase.from("=== {url} ====>>>>> ").put("url", url).format().toString());
+                                JLog.d(Phrase.from("=== url ====>>>>> {url}").put("url", url).format().toString());
                                 JLog.json(Phrase.from("{response}").put("response", response.toString()).format().toString());
                                 successResult.onSuccess(response.toString());
                             },
                             error -> {
                                 // TODO 组装失败返回数据
-                                JLog.d(Phrase.from("=== {url} == {error} ====>>>>> ").put("url", url).put("error", error.toString()).format().toString());
+                                JLog.d(Phrase.from("=== {url} ====>>>>> {error}").put("url", url).put("error", error.toString()).format().toString());
                                 failureResult.onFailure(error);
                             }));
         } catch (JSONException e) {
