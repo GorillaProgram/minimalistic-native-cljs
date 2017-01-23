@@ -36,7 +36,6 @@
   [response]
   (println "--- failure show info --->>> " response))
 
-
 (defn success-callback
   [message action-type]
   ; (start-polling polling-service 60)
@@ -70,8 +69,8 @@
        [image {:source logo-img
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [button {:button-style {:background-color "#00f"}
-                :text-style {:color "white"}
-                :text "button ~"
-                :on-press #(handle-press "success")}]
+                :text-style   {:color "white"}
+                :text         "button ~"
+                :on-press     #(handle-press "success")}]
        [simple-component {:style {:background-color "#00f"}
-                          :text "some message"}]])))
+                          :text  "some message"}]])))
