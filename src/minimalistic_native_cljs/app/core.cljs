@@ -61,6 +61,12 @@
   [message]
   (test-callback message success-callback error-callback))
 
+(def container-style {:flex-direction "column" :margin 40 :align-items "center"})
+
+(def text-style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"})
+
+(def image-style {:width 80 :height 80 :margin-bottom 30})
+
 (defn app-root-view []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
@@ -74,9 +80,3 @@
                 :on-press     #(handle-press "success")}]
        [simple-component {:style {:background-color "#00f"}
                           :text  "some message"}]])))
-
-(def container-style {:flex-direction "column" :margin 40 :align-items "center"})
-
-(def text-style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"})
-
-(def image-style {:width 80 :height 80 :margin-bottom 30})
