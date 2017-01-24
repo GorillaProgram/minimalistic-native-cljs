@@ -74,9 +74,8 @@
        [text {:style text-style} @greeting]
        [image {:source logo-img
                :style  image-style}]
-       [button {:button-style {:background-color "#00f"}
-                :text-style   {:color "white"}
-                :text         "button ~"
-                :on-press     #(handle-press "success")}]
+       [button {:underlayColor "#0B4D8D"
+                :text          "Press Me ~"
+                :on-press      #(handle-press "success")}]
        [simple-component {:style {:background-color "#00f"}
                           :text  "some message"}]])))

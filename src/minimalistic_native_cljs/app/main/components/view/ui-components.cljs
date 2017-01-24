@@ -32,7 +32,8 @@
 (defn button
   "button"
   [params]
-  [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
+  [touchable-highlight {:style {:background-color "#1177DB" :padding 10 :border-radius 5}
+                        :underlayColor (:underlayColor params)
                         :on-press (:on-press params)}
         [text {:style {:color "white" :text-align "center" :font-weight "bold"}} (:text params)]])
 ; ============================== customer components end ====================================
