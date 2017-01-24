@@ -35,5 +35,5 @@
   [touchable-highlight {:style {:background-color "#1177DB" :padding 10 :border-radius 5}
                         :underlayColor (:underlayColor params)
                         :on-press (:on-press params)}
-        [text {:style {:color "white" :text-align "center" :font-weight "bold"}} (:text params)]])
+        [text {:style {:color "white" :font-size 20 :text-align "center" :font-weight "bold"}} (:text params)]])
 ; ============================== customer components end ====================================
