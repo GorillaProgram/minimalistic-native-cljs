@@ -67,7 +67,6 @@
 
 (def image-style {:width 80 :height 80 :margin-bottom 30})
 
-
 (defn app-root-view []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
