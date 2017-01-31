@@ -66,7 +66,7 @@
 (def text-style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"})
 
 (def image-style {:width 80 :height 80 :margin-bottom 30})
-first commit
+
 (defn app-root-view []
   (let [greeting (subscribe [:get-greeting])]
     (fn []
